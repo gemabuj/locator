@@ -1,14 +1,14 @@
 /* GET 'homelist' page */
-module.exports.about = function(req, res){
-	res.render('index', {title: 'About this app'});
+module.exports.homelist = function(req, res){
+	res.render('index', {title: 'Home'});
 };
 
 /* GET 'location info' page */
-module.exports.about = function(req, res){
-	res.render('index', {title: 'About this app'});
+module.exports.locationInfo = function(req, res){
+	res.render('index', {title: 'List of Locations'});
 };
 
 /* GET 'add review' page */
-module.exports.about = function(req, res){
-	res.render('index', {title: 'About this app'});
+module.exports.addReview = function(req, res){
+	res.render('index', {title: 'Add Your Review'});
 };

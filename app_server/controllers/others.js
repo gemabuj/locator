@@ -1,4 +1,4 @@
 /* GET 'about' page */
 module.exports.about = function(req, res){
-	res.render('index', {title: 'About this app'});
+	res.render('index', {title: 'About This App'});
 };

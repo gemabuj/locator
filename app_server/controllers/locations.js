@@ -1,4 +1,4 @@
-/* GET 'homelist' page */
+/* GET 'homelist' page with locationslist.jade layout */
 module.exports.homelist = function(req, res){
 	res.render('locationslist', {title: 'Home'});
 };

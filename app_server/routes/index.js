@@ -1,8 +1,18 @@
 var express = require('express');
 var router = express.Router();
-var ctrlMain = require('../controllers/main');
+/* var ctrlMain = require('../controllers/main'); */
 var ctrlLocations = require('../controllers/locations');
 var ctrlOthers = require('../controllers/others');
+
+/* Location pages */
+router.get('/', ctrlLocations.homelist);
+router.get('/location', ctrlLocations.locationInfo);
+router.get('/location/review/new', ctrlLocations.addReview);
+
+/* Other pages */
+router.get('/about', ctrlOthers.about);
+
+module.exports = router;
 
 /* GET home page.
 router.get('/', function(req, res, next) {
@@ -17,6 +27,5 @@ var homepageController = function(req, res){
 */
 
 /* GET homepage */
-router.get('/', ctrlMain.index);
+/* router.get('/', ctrlMain.index); */
 
-module.exports = router;

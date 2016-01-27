@@ -10,5 +10,5 @@ module.exports.locationInfo = function(req, res){
 
 /* GET 'add review' page */
 module.exports.addReview = function(req, res){
-	res.render('index', {title: 'Add Your Review'});
+	res.render('locations-review-form', {title: 'Add Your Review'});
 };

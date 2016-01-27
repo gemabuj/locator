@@ -1,0 +1,46 @@
+extend layout
+
+block content
+  .row.page-header
+    .col-lg-12
+      h1 The Captain
+  .row
+    .col-xs-12.col-md-9
+      .row
+        .col-xs-12.col-sm-6
+          p.rating
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star-empty
+          p Damai Street 29 New York Avenue
+            .panel.panel-primary
+              .panel-heading
+                h2.panel-title Opening Hours
+              .panel-body
+                p Monday - Friday : 7:00am - 7:00pm
+                p Saturday : 8:00am - 11:00pm
+                p Sunday : 4:00pm - 11:00pm
+            .panel.panel-primary
+              .panel-heading
+                h2.panel-title Features
+              .panel-body
+                span.label.label-warning Bar
+                | &nbsp;
+                span.label.label-warning Lounge
+                | &nbsp;
+                span.label.label-warning Live Music
+                | &nbsp;
+                span.label.label-warning Wifi
+        .col-xs-12.col-sm-6
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Location Map
+            .panel-body
+              img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=51.455041,- 0.9690884&zoom=17&size=400x350&sensor=false&markers=51.455041,-0.9690884&scale=2')
+    .col-xs-12.col-md-3
+      p.small The Captain is on LocATor because it has accessible wifi and space to sit down with your laptop and get some work done.
+      p If you've been and you like it - or if you don't - please leave a review to help other people just like you.
+
+

@@ -1,11 +1,11 @@
 /* GET 'homelist' page with locationslist.jade layout */
 module.exports.homelist = function(req, res){
-	res.render('locationslist', {title: 'Home'});
+	res.render('locations-list', {title: 'Home'});
 };
 
 /* GET 'location info' page */
 module.exports.locationInfo = function(req, res){
-	res.render('locationsinfo', {title: 'List of Locations'});
+	res.render('locations-info', {title: 'List of Locations'});
 };
 
 /* GET 'add review' page */

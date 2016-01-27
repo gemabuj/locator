@@ -1,6 +1,6 @@
 /* GET 'about' page */
 module.exports.about = function(req, res){
-	res.render('index', {title: 'About This App'});
+	res.render('about', {title: 'About This App'});
 };
 
 /* GET 'behind the scene' page */

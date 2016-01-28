@@ -9,24 +9,21 @@ block content
   .row
     .col-xs-12.col-sm-8
       .row.list-group
-        .col-xs-12.list-group-item
-          h4
-            a(href='/location') The Captain
-            small &nbsp;
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star-empty
-          p.address Damai Street Krikilan Yogyakarta 55581
-          p
-            span.label.label-warning Bar
-            | &nbsp;
-            span.label.label-warning Lounge
-            | &nbsp;
-            span.label.label-warning Live Music
-            | &nbsp;
-            span.label.label-warning Wifi
+        each location in locations
+          .col-xs-12.list-group-item
+            h4
+              a(href='/location')= location.name
+              small &nbsp;
+                span.glyphicon.glyphicon-star
+                span.glyphicon.glyphicon-star
+                span.glyphicon.glyphicon-star
+                span.glyphicon.glyphicon-star
+                span.glyphicon.glyphicon-star-empty
+            p.address= location.address
+            p
+              each facility in location.facilities
+                span.label.label-warning= facility
+                | &nbsp;
 
     .col-xs-12.col-sm-4
-      p.small Looking for wifi and a seat? LocATor helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let LocATor help you find the place you're looking for.
+      p.small= sidebar

@@ -12,5 +12,11 @@ module.exports.about = function(req, res){
 
 /* GET 'behind the scene' page */
 module.exports.behindScene = function(req, res){
-  res.render('index', {title: 'LocATor - Behind The Scene'});
+  res.render('behind', {
+    title: 'LocATor - Behind The Scene',
+    pageHeader: {
+      title: 'LocATor',
+      strapline: 'Behind The Scene'
+    },
+  });
 };

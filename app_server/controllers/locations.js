@@ -1,10 +1,10 @@
 /* GET 'homelist' page with locationslist.jade layout */
 module.exports.homelist = function(req, res){
   res.render('locations-list', {
-    title: 'LocATor - find a place to work with wifi',
+    title: 'LocATor - Find a place to work with wifi',
     pageHeader: {
       title: 'LocATor',
-      strapline: 'Find places to work with wifi near you!'
+      strapline: 'find places to work with wifi near you!'
     },
     sidebar: 'Looking for wifi and a seat? LocATor helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let LocATor help you find the place you are looking for.',
     locations: [{

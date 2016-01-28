@@ -1,5 +1,5 @@
 extends layout
-
+include _includes/include-functions
 block content
   #banner.page-header
     .row 
@@ -14,11 +14,7 @@ block content
             h4
               a(href='/location')= location.name
               small &nbsp;
-                span.glyphicon.glyphicon-star
-                span.glyphicon.glyphicon-star
-                span.glyphicon.glyphicon-star
-                span.glyphicon.glyphicon-star
-                span.glyphicon.glyphicon-star-empty
+                +outputRating(location.rating)
             p.address= location.address
             p
               each facility in location.facilities

@@ -4,8 +4,8 @@ block content
   #banner.page-header
     .row 
       .col-lg-6
-        h1 LocATor
-          small &nbsp; Find places to work with wifi near you!
+        h1= pageHeader.title
+          small &nbsp;#{pageHeader.strapline}
   .row
     .col-xs-12.col-sm-8
       .row.list-group
@@ -28,23 +28,5 @@ block content
             | &nbsp;
             span.label.label-warning Wifi
 
-        //.col-xs-12.list-group-item
-          h4
-            a(href='/location') Banana Crepes
-            small &nbsp;
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star-empty
-              span.glyphicon.glyphicon-star-empty
-              span.glyphicon.glyphicon-star-empty
-          p.address Damai Street 30 New York Avenue
-          p
-            span.label.label-warning Cafe
-            | &nbsp;
-            span.label.label-warning Cheap
-            | &nbsp;
-            span.label.label-warning Windy
-            | &nbsp;
-            span.label.label-warning No Wifi
     .col-xs-12.col-sm-4
       p.small Looking for wifi and a seat? LocATor helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let LocATor help you find the place you're looking for.

@@ -35,7 +35,7 @@ module.exports.locationInfo = function(req, res){
       strapline: 'The Captain'
     },
     sidebar: {
-      context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done. The Captain are a lounge, which mean it is usually bigger than a bar, may have a dress code and often time charge a "cover" or "door" charge. Lounges often have themes of their own, have much more expensive decor and have higher drink prices than a bar. Some go for the super upscale as "ULTRALounges", while it may or may not offer food. Lounges usually have multiple bars and booths and tables for people to "lounge around" in or socialize in groups. Lounges may also share other features of a bar and usually has a DJ and small dance floor but its not a focus.',
+      context: 'is on LocATor because it has accessible wifi and space to sit down with your laptop and get some work done. The Captain are a lounge, which mean it is usually bigger than a bar, may have a dress code and often time charge a "cover" or "door" charge. Lounges often have themes of their own, have much more expensive decor and have higher drink prices than a bar. Some go for the super upscale as "ULTRALounges", while it may or may not offer food. Lounges usually have multiple bars and booths and tables for people to "lounge around" in or socialize in groups. Lounges may also share other features of a bar and usually has a DJ and small dance floor but its not a focus.',
       callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
     },
     location: {

@@ -17,9 +17,13 @@ block content
               .panel-heading
                 h2.panel-title Opening Hours
               .panel-body
-                p Monday - Friday : 7:00am - 7:00pm
-                p Saturday : 8:00am - 11:00pm
-                p Sunday : 4:00pm - 11:00pm
+                each openingTime in location.openingTimes
+                  p #{openingTime.days} :
+                    &nbsp;
+                    if openingTime.closed
+                      | Closed
+                    else
+                      | #{openingTime.opening} - #{openingTime.closing}
 
             .panel.panel-primary
               .panel-heading

@@ -43,6 +43,22 @@ module.exports.locationInfo = function(req, res){
       address: 'Damai Street Krikilan Yogyakarta 55581',
       rating: 4,
       facilities:['Bar', 'Lounge', 'Live Music', 'Wifi'],
+      openingTimes: [{
+        days: 'Monday - Friday',
+        opening: '7:00am',
+        closing: '11:00pm',
+        closed: false
+      },{
+        days: 'Saturday',
+        opening: '8:00am',
+        closing: '11:00pm',
+        closed: false
+      },{
+        days: 'Sunday',
+        opening: '4:00pm',
+        closing: '11:00pm',
+        closed: false
+      }],
       reviews: [{
         author: 'Abdul A',
         rating: 4,

@@ -10,36 +10,43 @@ block content
       .col-md-9(role="main")
         .bs-docs-section
           h1#overview.page-header Overview
-          p.lead Get the lowdown on the key pieces of Bootstrap"s infrastructure, including our approach to better, faster, stronger web development.
-          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+          p(align='justify').lead When I talk about full-stack development, I’m really talking about developing all parts of a website or application. The full stack starts with the database and web server in the back end, contains application logic and control in the middle, and goes all the way through to the user interface at the front end.
 
-          h1#overview-doctype HTML Doctype
-          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+          p(align='justify') As discussed, the paths of front-end and back-end developers are merging, and it’s entirely possible to be fully proficient in both disciplines. If you’re a freelancer, con- sultant, or part of a small team, being multiskilled is extremely useful, increasing the value that you can provide for your clients. Being able to develop the full scope of a website or application gives you better overall control and can help the different parts work seamlessly together, as they haven’t been built in isolation by separate teams.
 
-          h1#overview-nvm Nevermind
-          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+          p(align='justify') If you work as part of a large team then chances are that you’ll need to specialize in (or at least focus on) one area. But it’s generally advisable to understand how your component fits with other components, giving you a greater appreciation of the requirements and goals of other teams and the overall project.
 
         .bs-docs-section
-          h1#other.page-header Other Chap
-          p.lead Get the lowdown on the key pieces of Bootstrap"s infrastructure, including our approach to better, faster, stronger web development.
-          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+          h1#preparation.page-header Preparation
+          p(align='justify').lead All journeys must have a starting point, which for building a MEAN application is to create a new Express project. To create an Express project you’ll need to have five key things installed on your development machine such as node (and npm), git, heroku, express generator and command-line (terminal).
 
-          h1#other-subchap Other Sub Chap
-          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+          p(align='justify') You’re unlikely to have the full list of dependencies for a project right from the outset. It’s far more likely that you’ll start off with a few key ones that you know you’ll need, and perhaps some that you always use in your workflow.
+
+          p(align='justify') Using npm, it’s really easy to add more packages to the application whenever you want. You simply find the name of the package you want to install and open a com- mand prompt in the same folder as the package.json file.
+
+        .bs-docs-section
+          h1#building-node.page-header Building Node
+          p(align='justify').lead In every Node application there should be a file in the root folder of the application called package.json. This file can contain various metadata about a project, including the packages that it depends on to run. The following listing shows an example pack- age.json file that you might find in the root of a new Express project.
+          p(align='justify') Any Node application or module can have dependencies defined in a package.json file. Installing them is really easy, and is done in the same way regardless of the appli- cation or module.
+          p(align='justify') You’re unlikely to have the full list of dependencies for a project right from the outset. It’s far more likely that you’ll start off with a few key ones that you know you’ll need, and perhaps some that you always use in your workflow.
+
+        .bs-docs-section
+          h1#building-static.page-header Building Static App
+          p(align='justify') Our next step is to build on this base, creating a static site that you can click through. This is a critical step in putting together any site or application. Even if you’ve been given a design or some wireframes to work from, there’s no substitute for rapidly creating a realis- tic prototype that you can use in the browser. Something always comes to light in terms of layout or usability that hadn’t been noticed before. From this static proto- type, we’ll take the data out from the views and put it into the controllers. 
 
       .col-md-3(role="complementary")
         nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix
           ul.nav.bs-docs-sidenav
-            li
-              a(href="#overview") Overview
-              ul.nav
+            li: a(href="#overview") Overview
+              //ul.nav
                 li
                   a(href="#overview-doctype") HTML5 Doctype
                 li
                   a(href="#overview-nvm") Nevermind
-            li
-              a(href="#other") Other Chap
-              ul.nav
+            li: a(href="#preparation") Project Preparation
+              //ul.nav
                 li
                   a(href="#other-subchap") Other Sub Chap
+            li: a(href="#building-node") Building Node App
+            li: a(href="#building-static") Building Static App
               

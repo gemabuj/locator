@@ -1,21 +1,18 @@
 extends layout
-
+include _includes/include-functions
 block content
   .row.page-header
     .col-lg-12
-      h1 The Captain
+      h1= pageHeader.title
+        small &nbsp; #{pageHeader.strapline}
 
   .row
     .col-xs-12.col-md-9
       .row
         .col-xs-12.col-sm-6
           p.rating
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star-empty
-          p Damai Street Krikilan Yogyakarta 55581
+            +outputRating(location.rating)
+          p= location.address
             .panel.panel-primary
               .panel-heading
                 h2.panel-title Opening Hours
@@ -26,16 +23,12 @@ block content
 
             .panel.panel-primary
               .panel-heading
-                h2.panel-title Features
+                h2.panel-title Facilities
               .panel-body
-                span.label.label-warning Bar
-                | &nbsp;
-                span.label.label-warning Lounge
-                | &nbsp;
-                span.label.label-warning Live Music
-                | &nbsp;
-                span.label.label-warning Wifi
-
+                each facility in location.facilities
+                  span.label.label-warning #{facility}
+                  &nbsp; 
+              
         .col-xs-12.col-sm-6
           .panel.panel-primary
             .panel-heading
@@ -47,54 +40,21 @@ block content
         .col-xs-12
           .panel.panel-primary.review-panel
             .panel-heading
-              a.btn.btn-default.pull-right(href='/location/review/new') Add Your Review
+              a.btn.btn-default.pull-right(href='/location/review/new') Add Review
               h2.panel-title Customer Reviews
             .panel-body.review-container
-              .row
-                .review
-                  .well.well-sm.review-header
-                    span.reviewAuthor Abdul A
-                    span.reviewTimestamp January 25, 2016
-                    span.rating
-                      | &nbsp;
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star-empty
-                  .col-xs-12
-                    p What a great place. Recommended.
-              .row
-                .review
-                  .well.well-sm.review-header
-                    span.reviewAuthor Bernadette B
-                    span.reviewTimestamp January 26, 2016
-                    span.rating
-                      | &nbsp;
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star-empty
-                      span.glyphicon.glyphicon-star-empty
-                      span.glyphicon.glyphicon-star-empty
-                  .col-xs-12
-                    p It was okay. I guess.
-              .row
-                .review
-                  .well.well-sm.review-header
-                    span.reviewAuthor Charlotte C
-                    span.reviewTimestamp January 27, 2016
-                    span.rating
-                      | &nbsp;
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star
-                      span.glyphicon.glyphicon-star-empty
-                  .col-xs-12
-                    p Nice, tidy and quite fast wifi.
+              each review in location.reviews
+                .row
+                  .review
+                    .well.well-sm.review-header
+                      span.reviewAuthor #{review.author}
+                      span.reviewTimestamp #{review.timestamp}
+                      span.rating
+                        &nbsp; 
+                        +outputRating(review.rating)
+                    .col-xs-12
+                      p #{review.reviewText}
 
     .col-xs-12.col-md-3
-      p.small The Captain is on LocATor because it has accessible wifi and space to sit down with your laptop and get some work done.
-      p If you've been and you like it - or if you don't - please leave a review to help other people just like you.
-
-
+      p.small #{sidebar.context}
+      p= sidebar.callToAction

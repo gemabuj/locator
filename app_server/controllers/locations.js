@@ -28,10 +28,48 @@ module.exports.homelist = function(req, res){
 
 /* GET 'location info' page */
 module.exports.locationInfo = function(req, res){
-  res.render('locations-info', {title: 'List of Locations'});
+  res.render('locations-info', {
+    title: 'LocATor - List of Locations',
+    pageHeader: {
+      title: 'LocATor',
+      strapline: 'The Captain'
+    },
+    sidebar: {
+      context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.',
+      callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
+    },
+    location: {
+      name: 'The Captain',
+      address: 'Damai Street Krikilan Yogyakarta 55581',
+      rating: 4,
+      facilities:['Bar', 'Lounge', 'Live Music', 'Wifi'],
+      reviews: [{
+        author: 'Abdul A',
+        rating: 4,
+        timestamp: 'January 25, 2016',
+        reviewText: 'What a great place. Recommended.'
+      },{
+        author:'Bernadette B',
+        rating: 2,
+        timestamp: 'January 26, 2016',
+        reviewText: 'It was okay. I guess.'
+      },{
+        author: 'Charlotte C',
+        rating: 4,
+        timestamp: 'January 27, 2016',
+        reviewText: 'Nice, tidy and quite fast wifi.'
+      }]
+    }
+  });
 };
 
 /* GET 'add review' page */
 module.exports.addReview = function(req, res){
-  res.render('locations-review-form', {title: 'Add Your Review'});
+  res.render('locations-review-form', {
+    title: 'LocATor - Add Your Review',
+    pageHeader: {
+      title: 'LocATor',
+      strapline: 'Review'
+    }
+  });
 };

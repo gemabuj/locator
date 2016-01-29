@@ -1,0 +1,3435 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width,initial-scale=1")
+    meta(name="description", content="Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.")
+    meta(name="keywords", content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development")
+    meta(name="author", content="Mark Otto, Jacob Thornton, and Bootstrap contributors")
+    title  CSS &#183; Bootstrap 
+    link(href="../dist/css/bootstrap.min.css", rel="stylesheet")
+    link#bs-theme-stylesheet(href="data:text/css;charset=utf-8,", data-href="../dist/css/bootstrap-theme.min.css", rel="stylesheet")
+    link(href="../assets/css/docs.min.css", rel="stylesheet")
+    //if lt IE 9
+      script(src="../assets/js/ie8-responsive-file-warning.js")
+    script(src="../assets/js/ie-emulation-modes-warning.js")
+    //if lt IE 9
+      script(src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js")
+      script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
+    link(rel="apple-touch-icon", href="/apple-touch-icon.png")
+    link(rel="icon", href="/favicon.ico")
+    script
+      !function(e,t,a,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-146052-10","getbootstrap.com"),ga("send","pageview");
+  body
+    a#skippy.sr-only.sr-only-focusable(href="#content")
+      .container
+        span.skiplink-text Skip to main content
+    a.v4-tease(href="http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/") Aww yeah, Bootstrap 4 is coming!
+    header#top.navbar.navbar-static-top.bs-docs-nav(role="banner")
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#bs-navbar", aria-controls="bs-navbar", aria-expanded="false")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="../") Bootstrap
+        nav#bs-navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href="../getting-started/") Getting started
+            li.active
+              a(href="../css/") CSS
+            li
+              a(href="../components/") Components
+            li
+              a(href="../javascript/") JavaScript
+            li
+              a(href="../customize/") Customize
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href="http://themes.getbootstrap.com", onclick="ga('send','event','Navbar','Community links','Themes')") Themes
+            li
+              a(href="http://expo.getbootstrap.com", onclick="ga('send','event','Navbar','Community links','Expo')") Expo
+            li
+              a(href="http://blog.getbootstrap.com", onclick="ga('send','event','Navbar','Community links','Blog')") Blog
+    #content.bs-docs-header(tabindex="-1")
+      .container
+        h1 CSS
+        p
+          | Global CSS settings, fundamental HTML elements styled and enhanced with extensible classes, and an advanced grid system.
+        #carbonads-container
+          .carbonad
+            #azcarbon
+            script
+              var z=document.createElement("script");z.async=!0,z.src="http://engine.carbonads.com/z/32341/azcarbon_2_1_0_HORIZ";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);
+    .container.bs-docs-container
+      .row
+        .col-md-9(role="main")
+          .bs-docs-section
+            h1#overview.page-header Overview
+            p.lead
+              | Get the lowdown on the key pieces of Bootstrap"s infrastructure, including our approach to better, faster, stronger web development.
+            h2#overview-doctype HTML5 doctype
+            p
+              | Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+            figure.highlight
+              pre.
+                
+            h2#overview-mobile Mobile first
+            p
+              | With Bootstrap 2, we added optional mobile friendly styles for key aspects of the framework. With Bootstrap 3, we"ve rewritten the project to be mobile friendly from the start. Instead of adding on optional mobile styles, they"re baked right into the core. In fact,
+              strong Bootstrap is mobile first
+              | . Mobile first styles can be found throughout the entire library instead of in separate files.
+            p
+              | To ensure proper rendering and touch zooming,
+              strong add the viewport meta tag
+              | to your
+              code &#60;head&#62;
+              | .
+            figure.highlight
+              pre.
+                
+            p
+              | You can disable zooming capabilities on mobile devices by adding
+              code user-scalable=no
+              | to the viewport meta tag. This disables zooming, meaning users are only able to scroll, and results in your site feeling a bit more like a native application. Overall, we don"t recommend this on every site, so use caution!
+            figure.highlight
+              pre.
+                
+            h2#overview-type-links Typography and links
+            p
+              | Bootstrap sets basic global display, typography, and link styles. Specifically, we:
+            ul
+              li
+                | Set
+                code background-color: #fff;
+                | on the
+                code body
+              li
+                | Use the
+                code @font-family-base
+                | ,
+                code @font-size-base
+                | , and
+                code @line-height-base
+                | attributes as our typographic base
+              li
+                | Set the global link color via
+                code @link-color
+                | and apply link underlines only on
+                code :hover
+            p
+              | These styles can be found within
+              code scaffolding.less
+              | .
+            h2#overview-normalize Normalize.css
+            p
+              | For improved cross-browser rendering, we use
+              a(href="http://necolas.github.io/normalize.css/", target="_blank") Normalize.css
+              | , a project by
+              a(href="https://twitter.com/necolas", target="_blank") Nicolas Gallagher
+              | and
+              a(href="https://twitter.com/jon_neal", target="_blank") Jonathan Neal
+              | .
+            h2#overview-container Containers
+            p
+              | Bootstrap requires a containing element to wrap site contents and house our grid system. You may choose one of two containers to use in your projects. Note that, due to
+              code padding
+              | and more, neither container is nestable.
+            p
+              | Use
+              code .container
+              | for a responsive fixed width container.
+            figure.highlight
+              pre.
+                
+            p
+              | Use
+              code .container-fluid
+              | for a full width container, spanning the entire width of your viewport.
+            figure.highlight
+              pre.
+                
+          .bs-docs-section
+            h1#grid.page-header Grid system
+            p.lead
+              | Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes
+              a(href="#grid-example-basic") predefined classes
+              | for easy layout options, as well as powerful
+              a(href="#grid-less") mixins for generating more semantic layouts
+              | .
+            h2#grid-intro Introduction
+            p
+              | Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here"s how the Bootstrap grid system works:
+            ul
+              li
+                | Rows must be placed within a
+                code .container
+                | (fixed-width) or
+                code .container-fluid
+                | (full-width) for proper alignment and padding.
+              li Use rows to create horizontal groups of columns.
+              li
+                | Content should be placed within columns, and only columns may be immediate children of rows.
+              li
+                | Predefined grid classes like
+                code .row
+                | and
+                code .col-xs-4
+                | are available for quickly making grid layouts. Less mixins can also be used for more semantic layouts.
+              li
+                | Columns create gutters (gaps between column content) via
+                code padding
+                | . That padding is offset in rows for the first and last column via negative margin on
+                code .row
+                | s.
+              li
+                | The negative margin is why the examples below are outdented. It"s so that content within grid columns is lined up with non-grid content.
+              li
+                | Grid columns are created by specifying the number of twelve available columns you wish to span. For example, three equal columns would use three
+                code .col-xs-4
+                | .
+              li
+                | If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.
+              li
+                | Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, e.g. applying any
+                code .col-md-*
+                | class to an element will not only affect its styling on medium devices but also on large devices if a
+                code .col-lg-*
+                | class is not present.
+            p Look to the examples for applying these principles to your code.
+            h2#grid-media-queries Media queries
+            p
+              | We use the following media queries in our Less files to create the key breakpoints in our grid system.
+            figure.highlight
+              pre.
+                
+            p
+              | We occasionally expand on these media queries to include a
+              code max-width
+              | to limit CSS to a narrower set of devices.
+            figure.highlight
+              pre.
+                
+            h2#grid-options Grid options
+            p
+              | See how aspects of the Bootstrap grid system work across multiple devices with a handy table.
+            .table-responsive
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th
+                    th
+                      | Extra small devices
+                      small Phones (&#60;768px)
+                    th
+                      | Small devices
+                      small Tablets (&#8805;768px)
+                    th
+                      | Medium devices
+                      small Desktops (&#8805;992px)
+                    th
+                      | Large devices
+                      small Desktops (&#8805;1200px)
+                tbody
+                  tr
+                    th.text-nowrap(scope="row") Grid behavior
+                    td Horizontal at all times
+                    td(colspan="3") Collapsed to start, horizontal above breakpoints
+                  tr
+                    th.text-nowrap(scope="row") Container width
+                    td None (auto)
+                    td 750px
+                    td 970px
+                    td 1170px
+                  tr
+                    th.text-nowrap(scope="row") Class prefix
+                    td
+                      code .col-xs-
+                    td
+                      code .col-sm-
+                    td
+                      code .col-md-
+                    td
+                      code .col-lg-
+                  tr
+                    th.text-nowrap(scope="row") # of columns
+                    td(colspan="4") 12
+                  tr
+                    th.text-nowrap(scope="row") Column width
+                    td.text-muted Auto
+                    td ~62px
+                    td ~81px
+                    td ~97px
+                  tr
+                    th.text-nowrap(scope="row") Gutter width
+                    td(colspan="4") 30px (15px on each side of a column)
+                  tr
+                    th.text-nowrap(scope="row") Nestable
+                    td(colspan="4") Yes
+                  tr
+                    th.text-nowrap(scope="row") Offsets
+                    td(colspan="4") Yes
+                  tr
+                    th.text-nowrap(scope="row") Column ordering
+                    td(colspan="4") Yes
+            h2#grid-example-basic Example: Stacked-to-horizontal
+            p
+              | Using a single set of
+              code .col-md-*
+              | grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any
+              code .row
+              | .
+            .row.show-grid
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+              .col-md-1 .col-md-1
+            .row.show-grid
+              .col-md-8 .col-md-8
+              .col-md-4 .col-md-4
+            .row.show-grid
+              .col-md-4 .col-md-4
+              .col-md-4 .col-md-4
+              .col-md-4 .col-md-4
+            .row.show-grid
+              .col-md-6 .col-md-6
+              .col-md-6 .col-md-6
+            figure.highlight
+              pre.
+                
+            h2#grid-example-fluid Example: Fluid container
+            p
+              | Turn any fixed-width grid layout into a full-width layout by changing your outermost
+              code .container
+              | to
+              code .container-fluid
+              | .
+            figure.highlight
+              pre.
+                
+            h2#grid-example-mixed Example: Mobile and desktop
+            p
+              | Don"t want your columns to simply stack in smaller devices? Use the extra small and medium device grid classes by adding
+              code .col-xs-*
+              code .col-md-*
+              | to your columns. See the example below for a better idea of how it all works.
+            .row.show-grid
+              .col-xs-12.col-md-8 .col-xs-12 .col-md-8
+              .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+            .row.show-grid
+              .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+              .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+              .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+            .row.show-grid
+              .col-xs-6 .col-xs-6
+              .col-xs-6 .col-xs-6
+            figure.highlight
+              pre.
+                
+            h2#grid-example-mixed-complete Example: Mobile, tablet, desktop
+            p
+              | Build on the previous example by creating even more dynamic and powerful layouts with tablet
+              code .col-sm-*
+              | classes.
+            .row.show-grid
+              .col-xs-12.col-sm-6.col-md-8 .col-xs-12 .col-sm-6 .col-md-8
+              .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+            .row.show-grid
+              .col-xs-6.col-sm-4 .col-xs-6 .col-sm-4
+              .col-xs-6.col-sm-4 .col-xs-6 .col-sm-4
+              .clearfix.visible-xs-block
+              .col-xs-6.col-sm-4 .col-xs-6 .col-sm-4
+            figure.highlight
+              pre.
+                
+            h2#grid-example-wrapping Example: Column wrapping
+            p
+              | If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.
+            .row.show-grid
+              .col-xs-9 .col-xs-9
+              .col-xs-4
+                | .col-xs-4
+                br
+                | Since 9 + 4 = 13 &#62; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.
+              .col-xs-6
+                | .col-xs-6
+                br
+                | Subsequent columns continue along the new line.
+            figure.highlight
+              pre.
+                
+            h2#grid-responsive-resets Responsive column resets
+            p
+              | With the four tiers of grids available you"re bound to run into issues where, at certain breakpoints, your columns don"t clear quite right as one is taller than the other. To fix that, use a combination of a
+              code .clearfix
+              | and our
+              a(href="#responsive-utilities") responsive utility classes
+              | .
+            .row.show-grid
+              .col-xs-6.col-sm-3
+                | .col-xs-6 .col-sm-3
+                br
+                | Resize your viewport or check it out on your phone for an example.
+              .col-xs-6.col-sm-3 .col-xs-6 .col-sm-3
+              .clearfix.visible-xs-block
+              .col-xs-6.col-sm-3 .col-xs-6 .col-sm-3
+              .col-xs-6.col-sm-3 .col-xs-6 .col-sm-3
+            figure.highlight
+              pre.
+                
+            p
+              | In addition to column clearing at responsive breakpoints, you may need to
+              strong reset offsets, pushes, or pulls
+              | . See this in action in
+              a(href="../examples/grid/") the grid example
+              | .
+            figure.highlight
+              pre.
+                
+            h2#grid-offsetting Offsetting columns
+            p
+              | Move columns to the right using
+              code .col-md-offset-*
+              | classes. These classes increase the left margin of a column by
+              code *
+              | columns. For example,
+              code .col-md-offset-4
+              | moves
+              code .col-md-4
+              | over four columns.
+            .row.show-grid
+              .col-md-4 .col-md-4
+              .col-md-4.col-md-offset-4 .col-md-4 .col-md-offset-4
+            .row.show-grid
+              .col-md-3.col-md-offset-3 .col-md-3 .col-md-offset-3
+              .col-md-3.col-md-offset-3 .col-md-3 .col-md-offset-3
+            .row.show-grid
+              .col-md-6.col-md-offset-3 .col-md-6 .col-md-offset-3
+            figure.highlight
+              pre.
+                
+            p
+              | You can also override offsets from lower grid tiers with
+              code .col-*-offset-0
+              | classes.
+            figure.highlight
+              pre.
+                
+            h2#grid-nesting Nesting columns
+            p
+              | To nest your content with the default grid, add a new
+              code .row
+              | and set of
+              code .col-sm-*
+              | columns within an existing
+              code .col-sm-*
+              | column. Nested rows should include a set of columns that add up to 12 or fewer (it is not required that you use all 12 available columns).
+            .row.show-grid
+              .col-sm-9
+                | Level 1: .col-sm-9
+                .row.show-grid
+                  .col-xs-8.col-sm-6  Level 2: .col-xs-8 .col-sm-6 
+                  .col-xs-4.col-sm-6  Level 2: .col-xs-4 .col-sm-6 
+            figure.highlight
+              pre.
+                
+            h2#grid-column-ordering Column ordering
+            p
+              | Easily change the order of our built-in grid columns with
+              code .col-md-push-*
+              | and
+              code .col-md-pull-*
+              | modifier classes.
+            .row.show-grid
+              .col-md-9.col-md-push-3 .col-md-9 .col-md-push-3
+              .col-md-3.col-md-pull-9 .col-md-3 .col-md-pull-9
+            figure.highlight
+              pre.
+                
+            h2#grid-less Less mixins and variables
+            p
+              | In addition to
+              a(href="#grid-example-basic") prebuilt grid classes
+              | for fast layouts, Bootstrap includes Less variables and mixins for quickly generating your own simple, semantic layouts.
+            h3 Variables
+            p
+              | Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.
+            figure.highlight
+              pre.
+                
+            h3 Mixins
+            p
+              | Mixins are used in conjunction with the grid variables to generate semantic CSS for individual grid columns.
+            figure.highlight
+              pre.
+                
+            h3 Example usage
+            p
+              | You can modify the variables to your own custom values, or just use the mixins with their default values. Here"s an example of using the default settings to create a two-column layout with a gap between.
+            figure.highlight
+              pre.
+                
+            figure.highlight
+              pre.
+                
+          .bs-docs-section
+            h1#type.page-header Typography
+            h2#type-headings Headings
+            p
+              | All HTML headings,
+              code &#60;h1&#62;
+              | through
+              code &#60;h6&#62;
+              | , are available.
+              code .h1
+              | through
+              code .h6
+              | classes are also available, for when you want to match the font styling of a heading but still want your text to be displayed inline.
+            .bs-example.bs-example-type(data-example-id="simple-headings")
+              table.table
+                tbody
+                  tr
+                    td
+                      h1 h1. Bootstrap heading
+                    td.type-info Semibold 36px
+                  tr
+                    td
+                      h2 h2. Bootstrap heading
+                    td.type-info Semibold 30px
+                  tr
+                    td
+                      h3 h3. Bootstrap heading
+                    td.type-info Semibold 24px
+                  tr
+                    td
+                      h4 h4. Bootstrap heading
+                    td.type-info Semibold 18px
+                  tr
+                    td
+                      h5 h5. Bootstrap heading
+                    td.type-info Semibold 14px
+                  tr
+                    td
+                      h6 h6. Bootstrap heading
+                    td.type-info Semibold 12px
+            figure.highlight
+              pre.
+                
+            p
+              | Create lighter, secondary text in any heading with a generic
+              code &#60;small&#62;
+              | tag or the
+              code .small
+              | class.
+            .bs-example.bs-example-type(data-example-id="small-headings")
+              table.table
+                tbody
+                  tr
+                    td
+                      h1
+                        | h1. Bootstrap heading
+                        small Secondary text
+                  tr
+                    td
+                      h2
+                        | h2. Bootstrap heading
+                        small Secondary text
+                  tr
+                    td
+                      h3
+                        | h3. Bootstrap heading
+                        small Secondary text
+                  tr
+                    td
+                      h4
+                        | h4. Bootstrap heading
+                        small Secondary text
+                  tr
+                    td
+                      h5
+                        | h5. Bootstrap heading
+                        small Secondary text
+                  tr
+                    td
+                      h6
+                        | h6. Bootstrap heading
+                        small Secondary text
+            figure.highlight
+              pre.
+                
+            h2#type-body-copy Body copy
+            p
+              | Bootstrap"s global default
+              code font-size
+              | is
+              strong 14px
+              | , with a
+              code line-height
+              | of
+              strong 1.428
+              | . This is applied to the
+              code &#60;body&#62;
+              | and all paragraphs. In addition,
+              code &#60;p&#62;
+              | (paragraphs) receive a bottom margin of half their computed line-height (10px by default).
+            .bs-example(data-example-id="body-copy")
+              p
+                | Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+              p
+                | Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+              p
+                | Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+            figure.highlight
+              pre.
+                
+            h3 Lead body copy
+            p
+              | Make a paragraph stand out by adding
+              code .lead
+              | .
+            .bs-example(data-example-id="lead-copy")
+              p.lead
+                | Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+            figure.highlight
+              pre.
+                
+            h3 Built with Less
+            p
+              | The typographic scale is based on two Less variables in
+              strong variables.less
+              | :
+              code @font-size-base
+              | and
+              code @line-height-base
+              | . The first is the base font-size used throughout and the second is the base line-height. We use those variables and some simple math to create the margins, paddings, and line-heights of all our type and more. Customize them and Bootstrap adapts.
+            h2#type-inline-text Inline text elements
+            h3 Marked text
+            p
+              | For highlighting a run of text due to its relevance in another context, use the
+              code &#60;mark&#62;
+              | tag.
+            .bs-example(data-example-id="simple-mark")
+              p
+                | You can use the mark tag to
+                mark highlight
+                | text.
+            figure.highlight
+              pre.
+                
+            h3 Deleted text
+            p
+              | For indicating blocks of text that have been deleted use the
+              code &#60;del&#62;
+              | tag.
+            .bs-example(data-example-id="simple-del")
+              p
+                del This line of text is meant to be treated as deleted text.
+            figure.highlight
+              pre.
+                
+            h3 Strikethrough text
+            p
+              | For indicating blocks of text that are no longer relevant use the
+              code &#60;s&#62;
+              | tag.
+            .bs-example(data-example-id="simple-s")
+              p
+                s This line of text is meant to be treated as no longer accurate.
+            figure.highlight
+              pre.
+                
+            h3 Inserted text
+            p
+              | For indicating additions to the document use the
+              code &#60;ins&#62;
+              | tag.
+            .bs-example(data-example-id="simple-ins")
+              p
+                ins This line of text is meant to be treated as an addition to the document.
+            figure.highlight
+              pre.
+                
+            h3 Underlined text
+            p
+              | To underline text use the
+              code &#60;u&#62;
+              | tag.
+            .bs-example(data-example-id="simple-u")
+              p
+                u This line of text will render as underlined
+            figure.highlight
+              pre.
+                
+            p Make use of HTML"s default emphasis tags with lightweight styles.
+            h3 Small text
+            p
+              | For de-emphasizing inline or blocks of text, use the
+              code &#60;small&#62;
+              | tag to set text at 85% the size of the parent. Heading elements receive their own
+              code font-size
+              | for nested
+              code &#60;small&#62;
+              | elements.
+            p
+              | You may alternatively use an inline element with
+              code .small
+              | in place of any
+              code &#60;small&#62;
+              | .
+            .bs-example(data-example-id="simple-small")
+              p
+                small This line of text is meant to be treated as fine print.
+            figure.highlight
+              pre.
+                
+            h3 Bold
+            p For emphasizing a snippet of text with a heavier font-weight.
+            .bs-example(data-example-id="simple-strong")
+              p
+                | The following snippet of text is
+                strong rendered as bold text
+                | .
+            figure.highlight
+              pre.
+                
+            h3 Italics
+            p For emphasizing a snippet of text with italics.
+            .bs-example(data-example-id="simple-em")
+              p
+                | The following snippet of text is
+                em rendered as italicized text
+                | .
+            figure.highlight
+              pre.
+                
+            #callout-type-b-i-elems.bs-callout.bs-callout-info
+              h4 Alternate elements
+              p
+                | Feel free to use
+                code &#60;b&#62;
+                | and
+                code &#60;i&#62;
+                | in HTML5.
+                code &#60;b&#62;
+                | is meant to highlight words or phrases without conveying additional importance while
+                code &#60;i&#62;
+                | is mostly for voice, technical terms, etc.
+            h2#type-alignment Alignment classes
+            p Easily realign text to components with text alignment classes.
+            .bs-example(data-example-id="text-alignment")
+              p.text-left Left aligned text.
+              p.text-center Center aligned text.
+              p.text-right Right aligned text.
+              p.text-justify Justified text.
+              p.text-nowrap No wrap text.
+            figure.highlight
+              pre.
+                
+            h2#type-transformation Transformation classes
+            p Transform text in components with text capitalization classes.
+            .bs-example(data-example-id="text-capitalization")
+              p.text-lowercase Lowercased text.
+              p.text-uppercase Uppercased text.
+              p.text-capitalize Capitalized text.
+            figure.highlight
+              pre.
+                
+            h2#type-abbreviations Abbreviations
+            p
+              | Stylized implementation of HTML"s
+              code &#60;abbr&#62;
+              | element for abbreviations and acronyms to show the expanded version on hover. Abbreviations with a
+              code title
+              | attribute have a light dotted bottom border and a help cursor on hover, providing additional context on hover and to users of assistive technologies.
+            h3 Basic abbreviation
+            .bs-example(data-example-id="simple-abbr")
+              p
+                | An abbreviation of the word attribute is
+                abbr(title="attribute") attr
+                | .
+            figure.highlight
+              pre.
+                
+            h3 Initialism
+            p
+              | Add
+              code .initialism
+              | to an abbreviation for a slightly smaller font-size.
+            .bs-example(data-example-id="simple-initialism")
+              p
+                abbr.initialism(title="HyperText Markup Language") HTML
+                | is the best thing since sliced bread.
+            figure.highlight
+              pre.
+                
+            h2#type-addresses Addresses
+            p
+              | Present contact information for the nearest ancestor or the entire body of work. Preserve formatting by ending all lines with
+              code &#60;br&#62;
+              | .
+            .bs-example(data-example-id="simple-address")
+              address
+                strong Twitter, Inc.
+                br
+                | 1355 Market Street, Suite 900
+                br
+                | San Francisco, CA 94103
+                br
+                abbr(title="Phone") P:
+                | (123) 456-7890
+              address
+                strong Full Name
+                br
+                a(href="/cdn-cgi/l/email-protection#c6e5") first.last@example.com
+            figure.highlight
+              pre.
+                
+            h2#type-blockquotes Blockquotes
+            p For quoting blocks of content from another source within your document.
+            h3 Default blockquote
+            p
+              | Wrap
+              code &#60;blockquote&#62;
+              | around any
+              abbr(title="HyperText Markup Language") HTML
+              | as the quote. For straight quotes, we recommend a
+              code &#60;p&#62;
+              | .
+            .bs-example(data-example-id="simple-blockquote")
+              blockquote
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            figure.highlight
+              pre.
+                
+            h3 Blockquote options
+            p
+              | Style and content changes for simple variations on a standard
+              code &#60;blockquote&#62;
+              | .
+            h4 Naming a source
+            p
+              | Add a
+              code &#60;footer&#62;
+              | for identifying the source. Wrap the name of the source work in
+              code &#60;cite&#62;
+              | .
+            .bs-example(data-example-id="blockquote-cite")
+              blockquote
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                footer
+                  | Someone famous in
+                  cite(title="Source Title") Source Title
+            figure.highlight
+              pre.
+                
+            h4 Alternate displays
+            p
+              | Add
+              code .blockquote-reverse
+              | for a blockquote with right-aligned content.
+            .bs-example(style="overflow:hidden", data-example-id="blockquote-reverse")
+              blockquote.blockquote-reverse
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                footer
+                  | Someone famous in
+                  cite(title="Source Title") Source Title
+            figure.highlight
+              pre.
+                
+            h2#type-lists Lists
+            h3 Unordered
+            p
+              | A list of items in which the order does
+              em not
+              | explicitly matter.
+            .bs-example(data-example-id="simple-ul")
+              ul
+                li Lorem ipsum dolor sit amet
+                li Consectetur adipiscing elit
+                li Integer molestie lorem at massa
+                li Facilisis in pretium nisl aliquet
+                li
+                  | Nulla volutpat aliquam velit
+                  ul
+                    li Phasellus iaculis neque
+                    li Purus sodales ultricies
+                    li Vestibulum laoreet porttitor sem
+                    li Ac tristique libero volutpat at
+                li Faucibus porta lacus fringilla vel
+                li Aenean sit amet erat nunc
+                li Eget porttitor lorem
+            figure.highlight
+              pre.
+                
+            h3 Ordered
+            p
+              | A list of items in which the order
+              em does
+              | explicitly matter.
+            .bs-example(data-example-id="simple-ol")
+              ol
+                li Lorem ipsum dolor sit amet
+                li Consectetur adipiscing elit
+                li Integer molestie lorem at massa
+                li Facilisis in pretium nisl aliquet
+                li Nulla volutpat aliquam velit
+                li Faucibus porta lacus fringilla vel
+                li Aenean sit amet erat nunc
+                li Eget porttitor lorem
+            figure.highlight
+              pre.
+                
+            h3 Unstyled
+            p
+              | Remove the default
+              code list-style
+              | and left margin on list items (immediate children only).
+              strong This only applies to immediate children list items
+              | , meaning you will need to add the class for any nested lists as well.
+            .bs-example(data-example-id="unstyled-list")
+              ul.list-unstyled
+                li Lorem ipsum dolor sit amet
+                li Consectetur adipiscing elit
+                li Integer molestie lorem at massa
+                li Facilisis in pretium nisl aliquet
+                li
+                  | Nulla volutpat aliquam velit
+                  ul
+                    li Phasellus iaculis neque
+                    li Purus sodales ultricies
+                    li Vestibulum laoreet porttitor sem
+                    li Ac tristique libero volutpat at
+                li Faucibus porta lacus fringilla vel
+                li Aenean sit amet erat nunc
+                li Eget porttitor lorem
+            figure.highlight
+              pre.
+                
+            h3 Inline
+            p
+              | Place all list items on a single line with
+              code display: inline-block;
+              | and some light padding.
+            .bs-example(data-example-id="list-inline")
+              ul.list-inline
+                li Lorem ipsum
+                li Phasellus iaculis
+                li Nulla volutpat
+            figure.highlight
+              pre.
+                
+            h3 Description
+            p A list of terms with their associated descriptions.
+            .bs-example(data-example-id="simple-dl")
+              dl
+                dt Description lists
+                dd A description list is perfect for defining terms.
+                dt Euismod
+                dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                dd Donec id elit non mi porta gravida at eget metus.
+                dt Malesuada porta
+                dd Etiam porta sem malesuada magna mollis euismod.
+            figure.highlight
+              pre.
+                
+            h4 Horizontal description
+            p
+              | Make terms and descriptions in
+              code &#60;dl&#62;
+              | line up side-by-side. Starts off stacked like default
+              code &#60;dl&#62;
+              | s, but when the navbar expands, so do these.
+            .bs-example(data-example-id="horizontal-dl")
+              dl.dl-horizontal
+                dt Description lists
+                dd A description list is perfect for defining terms.
+                dt Euismod
+                dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                dd Donec id elit non mi porta gravida at eget metus.
+                dt Malesuada porta
+                dd Etiam porta sem malesuada magna mollis euismod.
+                dt Felis euismod semper eget lacinia
+                dd
+                  | Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+            figure.highlight
+              pre.
+                
+            #callout-type-dl-truncate.bs-callout.bs-callout-info
+              h4 Auto-truncating
+              p
+                | Horizontal description lists will truncate terms that are too long to fit in the left column with
+                code text-overflow
+                | . In narrower viewports, they will change to the default stacked layout.
+          .bs-docs-section
+            h1#code.page-header Code
+            h2#code-inline Inline
+            p
+              | Wrap inline snippets of code with
+              code &#60;code&#62;
+              | .
+            .bs-example(data-example-id="inline-code")
+              | For example,
+              code &#60;section&#62;
+              | should be wrapped as inline.
+            figure.highlight
+              pre.
+                
+            h2#code-user-input User input
+            p
+              | Use the
+              code &#60;kbd&#62;
+              | to indicate input that is typically entered via keyboard.
+            .bs-example(data-example-id="simple-kbd")
+              | To switch directories, type
+              kbd cd
+              | followed by the name of the directory.
+              br
+              | To edit settings, press
+              kbd
+                kbd ctrl
+                | +
+                kbd ,
+            figure.highlight
+              pre.
+                
+            h2#code-block Basic block
+            p
+              | Use
+              code &#60;pre&#62;
+              | for multiple lines of code. Be sure to escape any angle brackets in the code for proper rendering.
+            .bs-example(data-example-id="simple-pre")
+              pre.
+                \n<p>Sample text here...</p>                
+            figure.highlight
+              pre.
+                
+            p
+              | You may optionally add the
+              code .pre-scrollable
+              | class, which will set a max-height of 350px and provide a y-axis scrollbar.
+            h2#code-variables Variables
+            p
+              | For indicating variables use the
+              code &#60;var&#62;
+              | tag.
+            .bs-example(data-example-id="simple-var")
+              p
+                var y
+                | =
+                var m
+                var x
+                | +
+                var b
+            figure.highlight
+              pre.
+                
+            h2#code-sample-output Sample output
+            p
+              | For indicating blocks sample output from a program use the
+              code &#60;samp&#62;
+              | tag.
+            .bs-example(data-example-id="simple-samp")
+              p
+                samp This text is meant to be treated as sample output from a computer program.
+            figure.highlight
+              pre.
+                
+          .bs-docs-section
+            h1#tables.page-header Tables
+            h2#tables-example Basic example
+            p
+              | For basic styling&#8212;light padding and only horizontal dividers&#8212;add the base class
+              code .table
+              | to any
+              code &#60;table&#62;
+              | . It may seem super redundant, but given the widespread use of tables for other plugins like calendars and date pickers, we"ve opted to isolate our custom table styles.
+            .bs-example(data-example-id="simple-table")
+              table.table
+                caption Optional table caption.
+                thead
+                  tr
+                    th #
+                    th First Name
+                    th Last Name
+                    th Username
+                tbody
+                  tr
+                    th(scope="row") 1
+                    td Mark
+                    td Otto
+                    td @mdo
+                  tr
+                    th(scope="row") 2
+                    td Jacob
+                    td Thornton
+                    td @fat
+                  tr
+                    th(scope="row") 3
+                    td Larry
+                    td the Bird
+                    td @twitter
+            figure.highlight
+              pre.
+                
+            h2#tables-striped Striped rows
+            p
+              | Use
+              code .table-striped
+              | to add zebra-striping to any table row within the
+              code &#60;tbody&#62;
+              | .
+            #callout-tables-striped-ie8.bs-callout.bs-callout-danger
+              h4 Cross-browser compatibility
+              p
+                | Striped tables are styled via the
+                code :nth-child
+                | CSS selector, which is not available in Internet Explorer 8.
+            .bs-example(data-example-id="striped-table")
+              table.table.table-striped
+                thead
+                  tr
+                    th #
+                    th First Name
+                    th Last Name
+                    th Username
+                tbody
+                  tr
+                    th(scope="row") 1
+                    td Mark
+                    td Otto
+                    td @mdo
+                  tr
+                    th(scope="row") 2
+                    td Jacob
+                    td Thornton
+                    td @fat
+                  tr
+                    th(scope="row") 3
+                    td Larry
+                    td the Bird
+                    td @twitter
+            figure.highlight
+              pre.
+                
+            h2#tables-bordered Bordered table
+            p
+              | Add
+              code .table-bordered
+              | for borders on all sides of the table and cells.
+            .bs-example(data-example-id="bordered-table")
+              table.table.table-bordered
+                thead
+                  tr
+                    th #
+                    th First Name
+                    th Last Name
+                    th Username
+                tbody
+                  tr
+                    th(scope="row") 1
+                    td Mark
+                    td Otto
+                    td @mdo
+                  tr
+                    th(scope="row") 2
+                    td Jacob
+                    td Thornton
+                    td @fat
+                  tr
+                    th(scope="row") 3
+                    td Larry
+                    td the Bird
+                    td @twitter
+            figure.highlight
+              pre.
+                
+            h2#tables-hover-rows Hover rows
+            p
+              | Add
+              code .table-hover
+              | to enable a hover state on table rows within a
+              code &#60;tbody&#62;
+              | .
+            .bs-example(data-example-id="hoverable-table")
+              table.table.table-hover
+                thead
+                  tr
+                    th #
+                    th First Name
+                    th Last Name
+                    th Username
+                tbody
+                  tr
+                    th(scope="row") 1
+                    td Mark
+                    td Otto
+                    td @mdo
+                  tr
+                    th(scope="row") 2
+                    td Jacob
+                    td Thornton
+                    td @fat
+                  tr
+                    th(scope="row") 3
+                    td Larry
+                    td the Bird
+                    td @twitter
+            figure.highlight
+              pre.
+                
+            h2#tables-condensed Condensed table
+            p
+              | Add
+              code .table-condensed
+              | to make tables more compact by cutting cell padding in half.
+            .bs-example(data-example-id="condensed-table")
+              table.table.table-condensed
+                thead
+                  tr
+                    th #
+                    th First Name
+                    th Last Name
+                    th Username
+                tbody
+                  tr
+                    th(scope="row") 1
+                    td Mark
+                    td Otto
+                    td @mdo
+                  tr
+                    th(scope="row") 2
+                    td Jacob
+                    td Thornton
+                    td @fat
+                  tr
+                    th(scope="row") 3
+                    td(colspan="2") Larry the Bird
+                    td @twitter
+            figure.highlight
+              pre.
+                
+            h2#tables-contextual-classes Contextual classes
+            p Use contextual classes to color table rows or individual cells.
+            .table-responsive
+              table.table.table-bordered.table-striped
+                colgroup
+                  col.col-xs-1
+                  col.col-xs-7
+                thead
+                  tr
+                    th Class
+                    th Description
+                tbody
+                  tr
+                    th(scope="row")
+                      code .active
+                    td Applies the hover color to a particular row or cell
+                  tr
+                    th(scope="row")
+                      code .success
+                    td Indicates a successful or positive action
+                  tr
+                    th(scope="row")
+                      code .info
+                    td Indicates a neutral informative change or action
+                  tr
+                    th(scope="row")
+                      code .warning
+                    td Indicates a warning that might need attention
+                  tr
+                    th(scope="row")
+                      code .danger
+                    td Indicates a dangerous or potentially negative action
+            .bs-example(data-example-id="contextual-table")
+              table.table
+                thead
+                  tr
+                    th #
+                    th Column heading
+                    th Column heading
+                    th Column heading
+                tbody
+                  tr.active
+                    th(scope="row") 1
+                    td Column content
+                    td Column content
+                    td Column content
+                  tr
+                    th(scope="row") 2
+                    td Column content
+                    td Column content
+                    td Column content
+                  tr.success
+                    th(scope="row") 3
+                    td Column content
+                    td Column content
+                    td Column content
+                  tr
+                    th(scope="row") 4
+                    td Column content
+                    td Column content
+                    td Column content
+                  tr.info
+                    th(scope="row") 5
+                    td Column content
+                    td Column content
+                    td Column content
+                  tr
+                    th(scope="row") 6
+                    td Column content
+                    td Column content
+                    td Column content
+                  tr.warning
+                    th(scope="row") 7
+                    td Column content
+                    td Column content
+                    td Column content
+                  tr
+                    th(scope="row") 8
+                    td Column content
+                    td Column content
+                    td Column content
+                  tr.danger
+                    th(scope="row") 9
+                    td Column content
+                    td Column content
+                    td Column content
+            figure.highlight
+              pre.
+                
+            #callout-tables-context-accessibility.bs-callout.bs-callout-warning
+              h4 Conveying meaning to assistive technologies
+              p
+                | Using color to add meaning to a table row or individual cell only provides a visual indication, which will not be conveyed to users of assistive technologies &#8211; such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (the visible text in the relevant table row/cell), or is included through alternative means, such as additional text hidden with the
+                code .sr-only
+                | class.
+            h2#tables-responsive Responsive tables
+            p
+              | Create responsive tables by wrapping any
+              code .table
+              | in
+              code .table-responsive
+              | to make them scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, you will not see any difference in these tables.
+            #callout-tables-responsive-overflow.bs-callout.bs-callout-warning
+              h4 Vertical clipping/truncation
+              p
+                | Responsive tables make use of
+                code overflow-y: hidden
+                | , which clips off any content that goes beyond the bottom or top edges of the table. In particular, this can clip off dropdown menus and other third-party widgets.
+            #callout-tables-responsive-ff-fieldset.bs-callout.bs-callout-warning
+              h4 Firefox and fieldsets
+              p
+                | Firefox has some awkward fieldset styling involving
+                code width
+                | that interferes with the responsive table. This cannot be overriden without a Firefox-specific hack that we
+                strong don"t
+                | provide in Bootstrap:
+              figure.highlight
+                pre.
+                  
+              p
+                | For more information, read
+                a(href="https://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685") this Stack Overflow answer
+                | .
+            .bs-example(data-example-id="simple-responsive-table")
+              .table-responsive
+                table.table
+                  thead
+                    tr
+                      th #
+                      th Table heading
+                      th Table heading
+                      th Table heading
+                      th Table heading
+                      th Table heading
+                      th Table heading
+                  tbody
+                    tr
+                      th(scope="row") 1
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                    tr
+                      th(scope="row") 2
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                    tr
+                      th(scope="row") 3
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+              .table-responsive
+                table.table.table-bordered
+                  thead
+                    tr
+                      th #
+                      th Table heading
+                      th Table heading
+                      th Table heading
+                      th Table heading
+                      th Table heading
+                      th Table heading
+                  tbody
+                    tr
+                      th(scope="row") 1
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                    tr
+                      th(scope="row") 2
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                    tr
+                      th(scope="row") 3
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+                      td Table cell
+            figure.highlight
+              pre.
+                
+          .bs-docs-section
+            h1#forms.page-header Forms
+            h2#forms-example Basic example
+            p
+              | Individual form controls automatically receive some global styling. All textual
+              code &#60;input&#62;
+              | ,
+              code &#60;textarea&#62;
+              | , and
+              code &#60;select&#62;
+              | elements with
+              code .form-control
+              | are set to
+              code width: 100%;
+              | by default. Wrap labels and controls in
+              code .form-group
+              | for optimum spacing.
+            .bs-example(data-example-id="basic-forms")
+              form
+                .form-group
+                  label(for="exampleInputEmail1") Email address
+                  input#exampleInputEmail1.form-control(type="email", placeholder="Email")
+                .form-group
+                  label(for="exampleInputPassword1") Password
+                  input#exampleInputPassword1.form-control(type="password", placeholder="Password")
+                .form-group
+                  label(for="exampleInputFile") File input
+                  input#exampleInputFile(type="file")
+                  p.help-block Example block-level help text here.
+                .checkbox
+                  label
+                    input(type="checkbox")
+                    | Check me out
+                button.btn.btn-default(type="submit") Submit
+            figure.highlight
+              pre.
+                
+            #callout-formgroup-inputgroup.bs-callout.bs-callout-warning
+              h4 Don"t mix form groups with input groups
+              p
+                | Do not mix form groups directly with
+                a(href="/components/#input-groups") input groups
+                | . Instead, nest the input group inside of the form group.
+            h2#forms-inline Inline form
+            p
+              | Add
+              code .form-inline
+              | to your form (which doesn"t have to be a
+              code &#60;form&#62;
+              | ) for left-aligned and inline-block controls.
+              strong This only applies to forms within viewports that are at least 768px wide.
+            #callout-inline-form-width.bs-callout.bs-callout-danger
+              h4 May require custom widths
+              p
+                | Inputs and selects have
+                code width: 100%;
+                | applied by default in Bootstrap. Within inline forms, we reset that to
+                code width: auto;
+                | so multiple controls can reside on the same line. Depending on your layout, additional custom widths may be required.
+            #callout-inline-form-labels.bs-callout.bs-callout-warning
+              h4 Always add labels
+              p
+                | Screen readers will have trouble with your forms if you don"t include a label for every input. For these inline forms, you can hide the labels using the
+                code .sr-only
+                | class. There are further alternative methods of providing a label for assistive technologies, such as the
+                code aria-label
+                | ,
+                code aria-labelledby
+                | or
+                code title
+                | attribute. If none of these is present, screen readers may resort to using the
+                code placeholder
+                | attribute, if present, but note that use of
+                code placeholder
+                | as a replacement for other labelling methods is not advised.
+            .bs-example(data-example-id="simple-form-inline")
+              form.form-inline
+                .form-group
+                  label(for="exampleInputName2") Name
+                  input#exampleInputName2.form-control(type="text", placeholder="Jane Doe")
+                .form-group
+                  label(for="exampleInputEmail2") Email
+                  input#exampleInputEmail2.form-control(type="email", placeholder="jane.doe@example.com")
+                button.btn.btn-default(type="submit") Send invitation
+            figure.highlight
+              pre.
+                
+            .bs-example(data-example-id="simple-form-inline")
+              form.form-inline
+                .form-group
+                  label.sr-only(for="exampleInputEmail3") Email address
+                  input#exampleInputEmail3.form-control(type="email", placeholder="Email")
+                .form-group
+                  label.sr-only(for="exampleInputPassword3") Password
+                  input#exampleInputPassword3.form-control(type="password", placeholder="Password")
+                .checkbox
+                  label
+                    input(type="checkbox")
+                    | Remember me
+                button.btn.btn-default(type="submit") Sign in
+            figure.highlight
+              pre.
+                
+            .bs-example(data-example-id="form-inline-with-input-group")
+              form.form-inline
+                .form-group
+                  label.sr-only(for="exampleInputAmount") Amount (in dollars)
+                  .input-group
+                    .input-group-addon $
+                    input#exampleInputAmount.form-control(type="text", placeholder="Amount")
+                    .input-group-addon .00
+                button.btn.btn-primary(type="submit") Transfer cash
+            figure.highlight
+              pre.
+                
+            h2#forms-horizontal Horizontal form
+            p
+              | Use Bootstrap"s predefined grid classes to align labels and groups of form controls in a horizontal layout by adding
+              code .form-horizontal
+              | to the form (which doesn"t have to be a
+              code &#60;form&#62;
+              | ). Doing so changes
+              code .form-group
+              | s to behave as grid rows, so no need for
+              code .row
+              | .
+            .bs-example(data-example-id="simple-horizontal-form")
+              form.form-horizontal
+                .form-group
+                  label.col-sm-2.control-label(for="inputEmail3") Email
+                  .col-sm-10
+                    input#inputEmail3.form-control(type="email", placeholder="Email")
+                .form-group
+                  label.col-sm-2.control-label(for="inputPassword3") Password
+                  .col-sm-10
+                    input#inputPassword3.form-control(type="password", placeholder="Password")
+                .form-group
+                  .col-sm-offset-2.col-sm-10
+                    .checkbox
+                      label
+                        input(type="checkbox")
+                        | Remember me
+                .form-group
+                  .col-sm-offset-2.col-sm-10
+                    button.btn.btn-default(type="submit") Sign in
+            figure.highlight
+              pre.
+                
+            h2#forms-controls Supported controls
+            p Examples of standard form controls supported in an example form layout.
+            h3 Inputs
+            p
+              | Most common form control, text-based input fields. Includes support for all HTML5 types:
+              code text
+              | ,
+              code password
+              | ,
+              code datetime
+              | ,
+              code datetime-local
+              | ,
+              code date
+              | ,
+              code month
+              | ,
+              code time
+              | ,
+              code week
+              | ,
+              code number
+              | ,
+              code email
+              | ,
+              code url
+              | ,
+              code search
+              | ,
+              code tel
+              | , and
+              code color
+              | .
+            #callout-input-needs-type.bs-callout.bs-callout-danger
+              h4 Type declaration required
+              p
+                | Inputs will only be fully styled if their
+                code type
+                | is properly declared.
+            .bs-example(data-example-id="text-form-control")
+              form
+                input.form-control(type="text", placeholder="Text input")
+            figure.highlight
+              pre.
+                
+            #callout-xref-input-group.bs-callout.bs-callout-info
+              h4 Input groups
+              p
+                | To add integrated text or buttons before and/or after any text-based
+                code &#60;input&#62;
+                | ,
+                a(href="../components/#input-groups") check out the input group component
+                | .
+            h3 Textarea
+            p
+              | Form control which supports multiple lines of text. Change
+              code rows
+              | attribute as necessary.
+            .bs-example(data-example-id="textarea-form-control")
+              form
+                textarea.form-control(rows="3", placeholder="Textarea")
+            figure.highlight
+              pre.
+                
+            h3 Checkboxes and radios
+            p
+              | Checkboxes are for selecting one or several options in a list, while radios are for selecting one option from many.
+            p
+              | Disabled checkboxes and radios are supported, but to provide a "not-allowed" cursor on hover of the parent
+              code &#60;label&#62;
+              | , you"ll need to add the
+              code .disabled
+              | class to the parent
+              code .radio
+              | ,
+              code .radio-inline
+              | ,
+              code .checkbox
+              | , or
+              code .checkbox-inline
+              | .
+            h4 Default (stacked)
+            .bs-example(data-example-id="block-checkboxes-radios")
+              form
+                .checkbox
+                  label
+                    input(type="checkbox", value="")
+                    | Option one is this and that&#8212;be sure to include why it"s great
+                .checkbox.disabled
+                  label
+                    input(type="checkbox", value="", disabled="disabled")
+                    | Option two is disabled
+                br
+                .radio
+                  label
+                    input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="checked")
+                    | Option one is this and that&#8212;be sure to include why it"s great
+                .radio
+                  label
+                    input#optionsRadios2(type="radio", name="optionsRadios", value="option2")
+                    | Option two can be something else and selecting it will deselect option one
+                .radio.disabled
+                  label
+                    input#optionsRadios3(type="radio", name="optionsRadios", value="option3", disabled="disabled")
+                    | Option three is disabled
+            figure.highlight
+              pre.
+                
+            h4 Inline checkboxes and radios
+            p
+              | Use the
+              code .checkbox-inline
+              | or
+              code .radio-inline
+              | classes on a series of checkboxes or radios for controls that appear on the same line.
+            .bs-example(data-example-id="inline-checkboxes-radios")
+              form
+                label.checkbox-inline
+                  input#inlineCheckbox1(type="checkbox", value="option1")
+                  | 1
+                label.checkbox-inline
+                  input#inlineCheckbox2(type="checkbox", value="option2")
+                  | 2
+                label.checkbox-inline
+                  input#inlineCheckbox3(type="checkbox", value="option3")
+                  | 3
+              br
+              form
+                label.radio-inline
+                  input#inlineRadio1(type="radio", name="inlineRadioOptions", value="option1")
+                  | 1
+                label.radio-inline
+                  input#inlineRadio2(type="radio", name="inlineRadioOptions", value="option2")
+                  | 2
+                label.radio-inline
+                  input#inlineRadio3(type="radio", name="inlineRadioOptions", value="option3")
+                  | 3
+            figure.highlight
+              pre.
+                
+            h4 Checkboxes and radios without label text
+            p
+              | Should you have no text within the
+              code &#60;label&#62;
+              | , the input is positioned as you"d expect.
+              strong Currently only works on non-inline checkboxes and radios.
+              | Remember to still provide some form of label for assistive technologies (for instance, using
+              code aria-label
+              | ).
+            .bs-example(data-example-id="checkboxes-radios-without-labels")
+              form
+                .checkbox
+                  label
+                    input#blankCheckbox(type="checkbox", value="option1", aria-label="Checkbox without label text")
+                .radio
+                  label
+                    input#blankRadio1(type="radio", name="blankRadio", value="option1", aria-label="Radio button without label text")
+            figure.highlight
+              pre.
+                
+            h3 Selects
+            p
+              | Note that many native select menus&#8212;namely in Safari and Chrome&#8212;have rounded corners that cannot be modified via
+              code border-radius
+              | properties.
+            .bs-example(data-example-ids="select-form-control")
+              form
+                select.form-control
+                  option 1
+                  option 2
+                  option 3
+                  option 4
+                  option 5
+            figure.highlight
+              pre.
+                
+            p
+              | For
+              code &#60;select&#62;
+              | controls with the
+              code multiple
+              | attribute, multiple options are shown by default.
+            .bs-example(data-example-ids="select-multiple-form-control")
+              form
+                select.form-control(multiple="multiple")
+                  option 1
+                  option 2
+                  option 3
+                  option 4
+                  option 5
+            figure.highlight
+              pre.
+                
+            h2#forms-controls-static Static control
+            p
+              | When you need to place plain text next to a form label within a form, use the
+              code .form-control-static
+              | class on a
+              code &#60;p&#62;
+              | .
+            .bs-example(data-example-id="horizontal-static-form-control")
+              form.form-horizontal
+                .form-group
+                  label.col-sm-2.control-label Email
+                  .col-sm-10
+                    p.form-control-static
+                      a.__cf_email__(href="/cdn-cgi/l/email-protection", data-cfemail="b9dcd4d8d0d5f9dcc1d8d4c9d5dc97dad6d4") [email&#160;protected]
+                      script(data-cfhash="f9e31", type="text/javascript")
+                        /* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */
+                .form-group
+                  label.col-sm-2.control-label(for="inputPassword") Password
+                  .col-sm-10
+                    input#inputPassword.form-control(type="password", placeholder="Password")
+            figure.highlight
+              pre.
+                
+            .bs-example(data-example-id="inline-static-form-control")
+              form.form-inline
+                .form-group
+                  label.sr-only Email
+                  p.form-control-static
+                    a.__cf_email__(href="/cdn-cgi/l/email-protection", data-cfemail="3b5e565a52577b5e435a564b575e15585456") [email&#160;protected]
+                    script(data-cfhash="f9e31", type="text/javascript")
+                      /* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */
+                .form-group
+                  label.sr-only(for="inputPassword2") Password
+                  input#inputPassword2.form-control(type="password", placeholder="Password")
+                button.btn.btn-default(type="submit") Confirm identity
+            figure.highlight
+              pre.
+                
+            h2#forms-control-focus Focus state
+            p
+              | We remove the default
+              code outline
+              | styles on some form controls and apply a
+              code box-shadow
+              | in its place for
+              code :focus
+              | .
+            .bs-example
+              form
+                input#focusedInput.form-control(type="text", value="Demonstrative focus state")
+            #callout-focus-demo.bs-callout.bs-callout-info
+              h4
+                | Demo
+                code :focus
+                | state
+              p
+                | The above example input uses custom styles in our documentation to demonstrate the
+                code :focus
+                | state on a
+                code .form-control
+                | .
+            h2#forms-control-disabled Disabled state
+            p
+              | Add the
+              code disabled
+              | boolean attribute on an input to prevent user interactions. Disabled inputs appear lighter and add a
+              code not-allowed
+              | cursor.
+            .bs-example(data-example-id="text-form-control-disabled")
+              form
+                input#disabledInput.form-control(type="text", placeholder="Disabled input here…", disabled="disabled")
+            figure.highlight
+              pre.
+                
+            h3#forms-disabled-fieldsets Disabled fieldsets
+            p
+              | Add the
+              code disabled
+              | attribute to a
+              code &#60;fieldset&#62;
+              | to disable all the controls within the
+              code &#60;fieldset&#62;
+              | at once.
+            #callout-fieldset-disabled-pointer-events.bs-callout.bs-callout-warning
+              h4
+                | Caveat about link functionality of
+                code &#60;a&#62;
+              p
+                | By default, browsers will treat all native form controls (
+                code &#60;input&#62;
+                | ,
+                code &#60;select&#62;
+                | and
+                code &#60;button&#62;
+                | elements) inside a
+                code &#60;fieldset disabled&#62;
+                | as disabled, preventing both keyboard and mouse interactions on them. However, if your form also includes
+                code &#60;a ... class="btn btn-*"&#62;
+                | elements, these will only be given a style of
+                code pointer-events: none
+                | . As noted in the section about
+                a(href="#buttons-disabled") disabled state for buttons
+                | (and specifically in the sub-section for anchor elements), this CSS property is not yet standardized and isn"t fully supported in Opera 18 and below, or in Internet Explorer 11, and won"t prevent keyboard users from being able to focus or activate these links. So to be safe, use custom JavaScript to disable such links.
+            #callout-fieldset-disabled-ie.bs-callout.bs-callout-danger
+              h4 Cross-browser compatibility
+              p
+                | While Bootstrap will apply these styles in all browsers, Internet Explorer 11 and below don"t fully support the
+                code disabled
+                | attribute on a
+                code &#60;fieldset&#62;
+                | . Use custom JavaScript to disable the fieldset in these browsers.
+            .bs-example(data-example-id="disabled-fieldset")
+              form
+                fieldset(disabled="disabled")
+                  .form-group
+                    label(for="disabledTextInput") Disabled input
+                    input#disabledTextInput.form-control(type="text", placeholder="Disabled input")
+                  .form-group
+                    label(for="disabledSelect") Disabled select menu
+                    select#disabledSelect.form-control
+                      option Disabled select
+                  .checkbox
+                    label
+                      input(type="checkbox")
+                      | Can"t check this
+                  button.btn.btn-primary(type="submit") Submit
+            figure.highlight
+              pre.
+                
+            h2#forms-control-readonly Readonly state
+            p
+              | Add the
+              code readonly
+              | boolean attribute on an input to prevent modification of the input"s value. Read-only inputs appear lighter (just like disabled inputs), but retain the standard cursor.
+            .bs-example(data-example-id="readonly-text-form-control")
+              form
+                input.form-control(type="text", placeholder="Readonly input here…", readonly="readonly")
+            figure.highlight
+              pre.
+                
+            h2#forms-help-text Help text
+            p Block level help text for form controls.
+            #callout-help-text-accessibility.bs-callout.bs-callout-info
+              h4 Associating help text with form controls
+              p
+                | Help text should be explicitly associated with the form control it relates to using the
+                code aria-describedby
+                | attribute. This will ensure that assistive technologies &#8211; such as screen readers &#8211; will announce this help text when the user focuses or enters the control.
+            .bs-example(data-example-id="simple-help-text")
+              form
+                .form-group
+                  label(for="inputHelpBlock") Input with help text
+                  input#inputHelpBlock.form-control(type="text", aria-describedby="helpBlock")
+                span#helpBlock.help-block A block of help text that breaks onto a new line and may extend beyond one line.
+            figure.highlight
+              pre.
+                
+          h2#forms-control-validation Validation states
+          p
+            | Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add
+            code .has-warning
+            | ,
+            code .has-error
+            | , or
+            code .has-success
+            | to the parent element. Any
+            code .control-label
+            | ,
+            code .form-control
+            | , and
+            code .help-block
+            | within that element will receive the validation styles.
+          #callout-form-validation-state-accessibility.bs-callout.bs-callout-warning
+            h4 Conveying validation state to assistive technologies and colorblind users
+            p
+              | Using these validation styles to denote the state of a form control only provides a visual, color-based indication, which will not be conveyed to users of assistive technologies - such as screen readers - or to colorblind users.
+            p
+              | Ensure that an alternative indication of state is also provided. For instance, you can include a hint about state in the form control"s
+              code &#60;label&#62;
+              | text itself (as is the case in the following code example), include a
+              a(href="../components/#glyphicons") Glyphicon
+              | (with appropriate alternative text using the
+              code .sr-only
+              | class - see the
+              a(href="../components/#glyphicons-examples") Glyphicon examples
+              | ), or by providing an additional
+              a(href="#forms-help-text") help text
+              | block. Specifically for assistive technologies, invalid form controls can also be assigned an
+              code aria-invalid="true"
+              | attribute.
+          .bs-example(data-example-id="form-validation-states")
+            form
+              .form-group.has-success
+                label.control-label(for="inputSuccess1") Input with success
+                input#inputSuccess1.form-control(type="text", aria-describedby="helpBlock2")
+                span#helpBlock2.help-block A block of help text that breaks onto a new line and may extend beyond one line.
+              .form-group.has-warning
+                label.control-label(for="inputWarning1") Input with warning
+                input#inputWarning1.form-control(type="text")
+              .form-group.has-error
+                label.control-label(for="inputError1") Input with error
+                input#inputError1.form-control(type="text")
+              .has-success
+                .checkbox
+                  label
+                    input#checkboxSuccess(type="checkbox", value="option1")
+                    | Checkbox with success
+              .has-warning
+                .checkbox
+                  label
+                    input#checkboxWarning(type="checkbox", value="option1")
+                    | Checkbox with warning
+              .has-error
+                .checkbox
+                  label
+                    input#checkboxError(type="checkbox", value="option1")
+                    | Checkbox with error
+          figure.highlight
+            pre.
+              
+          h3 With optional icons
+          p
+            | You can also add optional feedback icons with the addition of
+            code .has-feedback
+            | and the right icon.
+          p
+            strong.text-danger
+              | Feedback icons only work with textual
+              code &#60;input class="form-control"&#62;
+              | elements.
+          #callout-has-feedback-icon-positioning.bs-callout.bs-callout-warning
+            h4 Icons, labels, and input groups
+            p
+              | Manual positioning of feedback icons is required for inputs without a label and for
+              a(href="../components#input-groups") input groups
+              | with an add-on on the right. You are strongly encouraged to provide labels for all inputs for accessibility reasons. If you wish to prevent labels from being displayed, hide them with the
+              code .sr-only
+              | class. If you must do without labels, adjust the
+              code top
+              | value of the feedback icon. For input groups, adjust the
+              code right
+              | value to an appropriate pixel value depending on the width of your addon.
+          #callout-has-feedback-icon-accessibility.bs-callout.bs-callout-warning
+            h4 Conveying the icon"s meaning to assistive technologies
+            p
+              | To ensure that assistive technologies &#8211; such as screen readers &#8211; correctly convey the meaning of an icon, additional hidden text should be included with the
+              code .sr-only
+              | class and explicitly associated with the form control it relates to using
+              code aria-describedby
+              | . Alternatively, ensure that the meaning (for instance, the fact that there is a warning for a particular text entry field) is conveyed in some other form, such as changing the text of the actual
+              code &#60;label&#62;
+              | associated with the form control.
+            p
+              | Although the following examples already mention the validation state of their respective form controls in the
+              code &#60;label&#62;
+              | text itself, the above technique (using
+              code .sr-only
+              | text and
+              code aria-describedby
+              | ) has been included for illustrative purposes.
+          .bs-example(data-example-id="form-validation-states-with-icons")
+            form
+              .form-group.has-success.has-feedback
+                label.control-label(for="inputSuccess2") Input with success
+                input#inputSuccess2.form-control(type="text", aria-describedby="inputSuccess2Status")
+                span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
+                span#inputSuccess2Status.sr-only (success)
+              .form-group.has-warning.has-feedback
+                label.control-label(for="inputWarning2") Input with warning
+                input#inputWarning2.form-control(type="text", aria-describedby="inputWarning2Status")
+                span.glyphicon.glyphicon-warning-sign.form-control-feedback(aria-hidden="true")
+                span#inputWarning2Status.sr-only (warning)
+              .form-group.has-error.has-feedback
+                label.control-label(for="inputError2") Input with error
+                input#inputError2.form-control(type="text", aria-describedby="inputError2Status")
+                span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+                span#inputError2Status.sr-only (error)
+              .form-group.has-success.has-feedback
+                label.control-label(for="inputGroupSuccess1") Input group with success
+                .input-group
+                  span.input-group-addon @
+                  input#inputGroupSuccess1.form-control(type="text", aria-describedby="inputGroupSuccess1Status")
+                span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
+                span#inputGroupSuccess1Status.sr-only (success)
+          figure.highlight
+            pre.
+              
+          h4 Optional icons in horizontal and inline forms
+          .bs-example(data-example-id="horizontal-form-validation-state-with-icon")
+            form.form-horizontal
+              .form-group.has-success.has-feedback
+                label.control-label.col-sm-3(for="inputSuccess3") Input with success
+                .col-sm-9
+                  input#inputSuccess3.form-control(type="text", aria-describedby="inputSuccess3Status")
+                  span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
+                  span#inputSuccess3Status.sr-only (success)
+              .form-group.has-success.has-feedback
+                label.control-label.col-sm-3(for="inputGroupSuccess2") Input group with success
+                .col-sm-9
+                  .input-group
+                    span.input-group-addon @
+                    input#inputGroupSuccess2.form-control(type="text", aria-describedby="inputGroupSuccess2Status")
+                  span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
+                  span#inputGroupSuccess2Status.sr-only (success)
+          figure.highlight
+            pre.
+              
+          .bs-example(data-example-id="inline-form-validation-state-with-icon")
+            form.form-inline
+              .form-group.has-success.has-feedback
+                label.control-label(for="inputSuccess4") Input with success
+                input#inputSuccess4.form-control(type="text", aria-describedby="inputSuccess4Status")
+                span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
+                span#inputSuccess4Status.sr-only (success)
+            br
+            form.form-inline
+              .form-group.has-success.has-feedback
+                label.control-label(for="inputGroupSuccess3") Input group with success
+                .input-group
+                  span.input-group-addon @
+                  input#inputGroupSuccess3.form-control(type="text", aria-describedby="inputGroupSuccess3Status")
+                span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
+                span#inputGroupSuccess3Status.sr-only (success)
+          figure.highlight
+            pre.
+              
+          h4
+            | Optional icons with hidden
+            code .sr-only
+            | labels
+          p
+            | If you use the
+            code .sr-only
+            | class to hide a form control"s
+            code &#60;label&#62;
+            | (rather than using other labelling options, such as the
+            code aria-label
+            | attribute), Bootstrap will automatically adjust the position of the icon once it"s been added.
+          .bs-example(data-example-id="form-validation-state-with-icon-without-label")
+            .form-group.has-success.has-feedback
+              label.control-label.sr-only(for="inputSuccess5") Hidden label
+              input#inputSuccess5.form-control(type="text", aria-describedby="inputSuccess5Status")
+              span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
+              span#inputSuccess5Status.sr-only (success)
+            .form-group.has-success.has-feedback
+              label.control-label.sr-only(for="inputGroupSuccess4") Input group with success
+              .input-group
+                span.input-group-addon @
+                input#inputGroupSuccess4.form-control(type="text", aria-describedby="inputGroupSuccess4Status")
+              span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
+              span#inputGroupSuccess4Status.sr-only (success)
+          figure.highlight
+            pre.
+              
+          h2#forms-control-sizes Control sizing
+          p
+            | Set heights using classes like
+            code .input-lg
+            | , and set widths using grid column classes like
+            code .col-lg-*
+            | .
+          h3 Height sizing
+          p Create taller or shorter form controls that match button sizes.
+          .bs-example.bs-example-control-sizing(data-example-id="form-control-height-sizes")
+            form
+              .controls
+                input.form-control.input-lg(type="text", placeholder=".input-lg")
+                input.form-control(type="text", placeholder="Default input")
+                input.form-control.input-sm(type="text", placeholder=".input-sm")
+                select.form-control.input-lg
+                  option(value="") .input-lg
+                select.form-control
+                  option(value="") Default select
+                select.form-control.input-sm
+                  option(value="") .input-sm
+          figure.highlight
+            pre.
+              
+          h3 Horizontal form group sizes
+          p
+            | Quickly size labels and form controls within
+            code .form-horizontal
+            | by adding
+            code .form-group-lg
+            | or
+            code .form-group-sm
+            | .
+          .bs-example(data-example-id="form-group-height-sizes")
+            form.form-horizontal
+              .form-group.form-group-lg
+                label.col-sm-2.control-label(for="formGroupInputLarge") Large label
+                .col-sm-10
+                  input#formGroupInputLarge.form-control(type="text", placeholder="Large input")
+              .form-group.form-group-sm
+                label.col-sm-2.control-label(for="formGroupInputSmall") Small label
+                .col-sm-10
+                  input#formGroupInputSmall.form-control(type="text", placeholder="Small input")
+          figure.highlight
+            pre.
+              
+          h3 Column sizing
+          p
+            | Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.
+          .bs-example(data-example-id="form-control-column-sizing")
+            form
+              .row
+                .col-xs-2
+                  input.form-control(type="text", placeholder=".col-xs-2")
+                .col-xs-3
+                  input.form-control(type="text", placeholder=".col-xs-3")
+                .col-xs-4
+                  input.form-control(type="text", placeholder=".col-xs-4")
+          figure.highlight
+            pre.
+              
+          .bs-docs-section
+            h1#buttons.page-header Buttons
+            h2#buttons-tags Button tags
+            p
+              | Use the button classes on an
+              code &#60;a&#62;
+              | ,
+              code &#60;button&#62;
+              | , or
+              code &#60;input&#62;
+              | element.
+            form.bs-example(data-example-id="btn-tags")
+              a.btn.btn-default(href="#", role="button") Link
+              button.btn.btn-default(type="submit") Button
+              input.btn.btn-default(type="button", value="Input")
+              input.btn.btn-default(type="submit", value="Submit")
+            figure.highlight
+              pre.
+                
+            #callout-buttons-context-usage.bs-callout.bs-callout-warning
+              h4 Context-specific usage
+              p
+                | While button classes can be used on
+                code &#60;a&#62;
+                | and
+                code &#60;button&#62;
+                | elements, only
+                code &#60;button&#62;
+                | elements are supported within our nav and navbar components.
+            #callout-buttons-anchor-accessibility.bs-callout.bs-callout-warning
+              h4 Links acting as buttons
+              p
+                | If the
+                code &#60;a&#62;
+                | elements are used to act as buttons &#8211; triggering in-page functionality, rather than navigating to another document or section within the current page &#8211; they should also be given an appropriate
+                code role="button"
+                | .
+            #callout-buttons-ff-height.bs-callout.bs-callout-warning
+              h4 Cross-browser rendering
+              p
+                | As a best practice,
+                strong
+                  | we highly recommend using the
+                  code &#60;button&#62;
+                  | element whenever possible
+                | to ensure matching cross-browser rendering.
+              p
+                | Among other things, there"s
+                a(href="https://bugzilla.mozilla.org/show_bug.cgi?id=697451") a bug in Firefox &#60;30
+                | that prevents us from setting the
+                code line-height
+                | of
+                code &#60;input&#62;
+                | -based buttons, causing them to not exactly match the height of other buttons on Firefox.
+            h2#buttons-options Options
+            p Use any of the available button classes to quickly create a styled button.
+            .bs-example(data-example-id="btn-variants")
+              button.btn.btn-default(type="button") Default
+              button.btn.btn-primary(type="button") Primary
+              button.btn.btn-success(type="button") Success
+              button.btn.btn-info(type="button") Info
+              button.btn.btn-warning(type="button") Warning
+              button.btn.btn-danger(type="button") Danger
+              button.btn.btn-link(type="button") Link
+            figure.highlight
+              pre.
+                
+            #callout-buttons-color-accessibility.bs-callout.bs-callout-warning
+              h4 Conveying meaning to assistive technologies
+              p
+                | Using color to add meaning to a button only provides a visual indication, which will not be conveyed to users of assistive technologies &#8211; such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (the visible text of the button), or is included through alternative means, such as additional text hidden with the
+                code .sr-only
+                | class.
+            h2#buttons-sizes Sizes
+            p
+              | Fancy larger or smaller buttons? Add
+              code .btn-lg
+              | ,
+              code .btn-sm
+              | , or
+              code .btn-xs
+              | for additional sizes.
+            .bs-example(data-example-id="btn-sizes")
+              p
+                button.btn.btn-primary.btn-lg(type="button") Large button
+                button.btn.btn-default.btn-lg(type="button") Large button
+              p
+                button.btn.btn-primary(type="button") Default button
+                button.btn.btn-default(type="button") Default button
+              p
+                button.btn.btn-primary.btn-sm(type="button") Small button
+                button.btn.btn-default.btn-sm(type="button") Small button
+              p
+                button.btn.btn-primary.btn-xs(type="button") Extra small button
+                button.btn.btn-default.btn-xs(type="button") Extra small button
+            figure.highlight
+              pre.
+                
+            p
+              | Create block level buttons&#8212;those that span the full width of a parent&#8212; by adding
+              code .btn-block
+              | .
+            .bs-example(data-example-id="block-btns")
+              .well.center-block(style="max-width:400px")
+                button.btn.btn-primary.btn-lg.btn-block(type="button") Block level button
+                button.btn.btn-default.btn-lg.btn-block(type="button") Block level button
+            figure.highlight
+              pre.
+                
+            h2#buttons-active Active state
+            p
+              | Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active. For
+              code &#60;button&#62;
+              | elements, this is done via
+              code :active
+              | . For
+              code &#60;a&#62;
+              | elements, it"s done with
+              code .active
+              | . However, you may use
+              code .active
+              | on
+              code &#60;button&#62;
+              | s (and include the
+              code aria-pressed="true"
+              | attribute) should you need to replicate the active state programmatically.
+            h3 Button element
+            p
+              | No need to add
+              code :active
+              | as it"s a pseudo-class, but if you need to force the same appearance, go ahead and add
+              code .active
+              | .
+            p.bs-example(data-example-id="active-button-btns")
+              button.btn.btn-primary.btn-lg.active(type="button") Primary button
+              button.btn.btn-default.btn-lg.active(type="button") Button
+            figure.highlight
+              pre.
+                
+            h3 Anchor element
+            p
+              | Add the
+              code .active
+              | class to
+              code &#60;a&#62;
+              | buttons.
+            p.bs-example(data-example-id="active-anchor-btns")
+              a.btn.btn-primary.btn-lg.active(href="#", role="button") Primary link
+              a.btn.btn-default.btn-lg.active(href="#", role="button") Link
+            figure.highlight
+              pre.
+                
+            h2#buttons-disabled Disabled state
+            p
+              | Make buttons look unclickable by fading them back with
+              code opacity
+              | .
+            h3 Button element
+            p
+              | Add the
+              code disabled
+              | attribute to
+              code &#60;button&#62;
+              | buttons.
+            p.bs-example(data-example-id="disabled-button-btns")
+              button.btn.btn-primary.btn-lg(type="button", disabled="disabled") Primary button
+              button.btn.btn-default.btn-lg(type="button", disabled="disabled") Button
+            figure.highlight
+              pre.
+                
+            #callout-buttons-ie-disabled.bs-callout.bs-callout-danger
+              h4 Cross-browser compatibility
+              p
+                | If you add the
+                code disabled
+                | attribute to a
+                code &#60;button&#62;
+                | , Internet Explorer 9 and below will render text gray with a nasty text-shadow that we cannot fix.
+            h3 Anchor element
+            p
+              | Add the
+              code .disabled
+              | class to
+              code &#60;a&#62;
+              | buttons.
+            p.bs-example(data-example-id="disabled-anchor-btns")
+              a.btn.btn-primary.btn-lg.disabled(href="#", role="button") Primary link
+              a.btn.btn-default.btn-lg.disabled(href="#", role="button") Link
+            figure.highlight
+              pre.
+                
+            p
+              | We use
+              code .disabled
+              | as a utility class here, similar to the common
+              code .active
+              | class, so no prefix is required.
+            #callout-buttons-disabled-anchor.bs-callout.bs-callout-warning
+              h4 Link functionality caveat
+              p
+                | This class uses
+                code pointer-events: none
+                | to try to disable the link functionality of
+                code &#60;a&#62;
+                | s, but that CSS property is not yet standardized and isn"t fully supported in Opera 18 and below, or in Internet Explorer 11. In addition, even in browsers that do support
+                code pointer-events: none
+                | , keyboard navigation remains unaffected, meaning that sighted keyboard users and users of assistive technologies will still be able to activate these links. So to be safe, use custom JavaScript to disable such links.
+          .bs-docs-section
+            h1#images.page-header Images
+            h2#images-responsive Responsive images
+            p
+              | Images in Bootstrap 3 can be made responsive-friendly via the addition of the
+              code .img-responsive
+              | class. This applies
+              code max-width: 100%;
+              | ,
+              code height: auto;
+              | and
+              code display: block;
+              | to the image so that it scales nicely to the parent element.
+            p
+              | To center images which use the
+              code .img-responsive
+              | class, use
+              code .center-block
+              | instead of
+              code .text-center
+              | .
+              a(href="../css/#helper-classes-center") See the helper classes section
+              | for more details about
+              code .center-block
+              | usage.
+            #callout-images-ie-svg.bs-callout.bs-callout-warning
+              h4 SVG images and IE 8-10
+              p
+                | In Internet Explorer 8-10, SVG images with
+                code .img-responsive
+                | are disproportionately sized. To fix this, add
+                code width: 100% \9;
+                | where necessary. Bootstrap doesn"t apply this automatically as it causes complications to other image formats.
+            figure.highlight
+              pre.
+                
+            h2#images-shapes Image shapes
+            p
+              | Add classes to an
+              code &#60;img&#62;
+              | element to easily style images in any project.
+            #callout-images-ie-rounded-corners.bs-callout.bs-callout-danger
+              h4 Cross-browser compatibility
+              p Keep in mind that Internet Explorer 8 lacks support for rounded corners.
+            .bs-example.bs-example-images(data-example-id="image-shapes")
+              img.img-rounded(data-src="holder.js/140x140", alt="A generic square placeholder image with rounded corners")
+              img.img-circle(data-src="holder.js/140x140", alt="A generic square placeholder image where only the portion within the circle circumscribed about said square is visible")
+              img.img-thumbnail(data-src="holder.js/140x140", alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera")
+            figure.highlight
+              pre.
+                
+          .bs-docs-section
+            h1#helper-classes.page-header Helper classes
+            h3#helper-classes-colors Contextual colors
+            p
+              | Convey meaning through color with a handful of emphasis utility classes. These may also be applied to links and will darken on hover just like our default link styles.
+            .bs-example(data-example-id="contextual-colors-helpers")
+              p.text-muted Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.
+              p.text-primary Nullam id dolor id nibh ultricies vehicula ut id elit.
+              p.text-success Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              p.text-info Maecenas sed diam eget risus varius blandit sit amet non magna.
+              p.text-warning Etiam porta sem malesuada magna mollis euismod.
+              p.text-danger Donec ullamcorper nulla non metus auctor fringilla.
+            figure.highlight
+              pre.
+                
+            #callout-helper-context-color-specificity.bs-callout.bs-callout-info
+              h4 Dealing with specificity
+              p
+                | Sometimes emphasis classes cannot be applied due to the specificity of another selector. In most cases, a sufficient workaround is to wrap your text in a
+                code &#60;span&#62;
+                | with the class.
+            #callout-helper-context-color-accessibility.bs-callout.bs-callout-warning
+              h4 Conveying meaning to assistive technologies
+              p
+                | Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies &#8211; such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (the contextual colors are only used to reinforce meaning that is already present in the text/markup), or is included through alternative means, such as additional text hidden with the
+                code .sr-only
+                | class.
+            h3#helper-classes-backgrounds Contextual backgrounds
+            p
+              | Similar to the contextual text color classes, easily set the background of an element to any contextual class. Anchor components will darken on hover, just like the text classes.
+            .bs-example.bs-example-bg-classes(data-example-id="contextual-backgrounds-helpers")
+              p.bg-primary Nullam id dolor id nibh ultricies vehicula ut id elit.
+              p.bg-success Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              p.bg-info Maecenas sed diam eget risus varius blandit sit amet non magna.
+              p.bg-warning Etiam porta sem malesuada magna mollis euismod.
+              p.bg-danger Donec ullamcorper nulla non metus auctor fringilla.
+            figure.highlight
+              pre.
+                
+            #callout-helper-bg-specificity.bs-callout.bs-callout-info
+              h4 Dealing with specificity
+              p
+                | Sometimes contextual background classes cannot be applied due to the specificity of another selector. In some cases, a sufficient workaround is to wrap your element"s content in a
+                code &#60;div&#62;
+                | with the class.
+            #callout-helper-bg-accessibility.bs-callout.bs-callout-warning
+              h4 Conveying meaning to assistive technologies
+              p
+                | As with
+                a(href="#helper-classes-colors") contextual colors
+                | , ensure that any meaning conveyed through color is also conveyed in a format that is not purely presentational.
+            h3#helper-classes-close Close icon
+            p Use the generic close icon for dismissing content like modals and alerts.
+            .bs-example(data-example-id="close-icon")
+              p
+                button.close(type="button", aria-label="Close")
+                  span(aria-hidden="true") &#215;
+            figure.highlight
+              pre.
+                
+            h3#helper-classes-carets Carets
+            p
+              | Use carets to indicate dropdown functionality and direction. Note that the default caret will reverse automatically in
+              a(href="../components/#btn-dropdowns-dropup") dropup menus
+              | .
+            .bs-example(data-example-id="caret")
+              span.caret
+            figure.highlight
+              pre.
+                
+            h3#helper-classes-floats Quick floats
+            p
+              | Float an element to the left or right with a class.
+              code !important
+              | is included to avoid specificity issues. Classes can also be used as mixins.
+            figure.highlight
+              pre.
+                
+            figure.highlight
+              pre.
+                
+            #callout-helper-pull-navbar.bs-callout.bs-callout-warning
+              h4 Not for use in navbars
+              p
+                | To align components in navbars with utility classes, use
+                code .navbar-left
+                | or
+                code .navbar-right
+                | instead.
+                a(href="../components/#navbar-component-alignment") See the navbar docs
+                | for details.
+            h3#helper-classes-center Center content blocks
+            p
+              | Set an element to
+              code display: block
+              | and center via
+              code margin
+              | . Available as a mixin and class.
+            figure.highlight
+              pre.
+                
+            figure.highlight
+              pre.
+                
+            h3#helper-classes-clearfix Clearfix
+            p
+              | Easily clear
+              code float
+              | s by adding
+              code .clearfix
+              strong to the parent element
+              | . Utilizes
+              a(href="http://nicolasgallagher.com/micro-clearfix-hack/") the micro clearfix
+              | as popularized by Nicolas Gallagher. Can also be used as a mixin.
+            figure.highlight
+              pre.
+                
+            figure.highlight
+              pre.
+                
+            h3#helper-classes-show-hide Showing and hiding content
+            p
+              | Force an element to be shown or hidden (
+              strong including for screen readers
+              | ) with the use of
+              code .show
+              | and
+              code .hidden
+              | classes. These classes use
+              code !important
+              | to avoid specificity conflicts, just like the
+              a(href="#helper-classes-floats") quick floats
+              | . They are only available for block level toggling. They can also be used as mixins.
+            p
+              code .hide
+              | is available, but it does not always affect screen readers and is
+              strong deprecated
+              | as of v3.0.1. Use
+              code .hidden
+              | or
+              code .sr-only
+              | instead.
+            p
+              | Furthermore,
+              code .invisible
+              | can be used to toggle only the visibility of an element, meaning its
+              code display
+              | is not modified and the element can still affect the flow of the document.
+            figure.highlight
+              pre.
+                
+            figure.highlight
+              pre.
+                
+            h3#helper-classes-screen-readers Screen reader and keyboard navigation content
+            p
+              | Hide an element to all devices
+              strong except screen readers
+              | with
+              code .sr-only
+              | . Combine
+              code .sr-only
+              | with
+              code .sr-only-focusable
+              | to show the element again when it"s focused (e.g. by a keyboard-only user). Necessary for following
+              a(href="../getting-started/#accessibility") accessibility best practices
+              | . Can also be used as mixins.
+            figure.highlight
+              pre.
+                
+            figure.highlight
+              pre.
+                
+            h3#helper-classes-image-replacement Image replacement
+            p
+              | Utilize the
+              code .text-hide
+              | class or mixin to help replace an element"s text content with a background image.
+            figure.highlight
+              pre.
+                
+            figure.highlight
+              pre.
+                
+          .bs-docs-section
+            h1#responsive-utilities.page-header Responsive utilities
+            p.lead
+              | For faster mobile-friendly development, use these utility classes for showing and hiding content by device via media query. Also included are utility classes for toggling content when printed.
+            p
+              | Try to use these on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device"s presentation.
+            h2#responsive-utilities-classes Available classes
+            p
+              | Use a single or combination of the available classes for toggling content across viewport breakpoints.
+            .table-responsive
+              table.table.table-bordered.table-striped.responsive-utilities
+                thead
+                  tr
+                    th
+                    th
+                      | Extra small devices
+                      small Phones (&#60;768px)
+                    th
+                      | Small devices
+                      small Tablets (&#8805;768px)
+                    th
+                      | Medium devices
+                      small Desktops (&#8805;992px)
+                    th
+                      | Large devices
+                      small Desktops (&#8805;1200px)
+                tbody
+                  tr
+                    th(scope="row")
+                      code .visible-xs-*
+                    td.is-visible Visible
+                    td.is-hidden Hidden
+                    td.is-hidden Hidden
+                    td.is-hidden Hidden
+                  tr
+                    th(scope="row")
+                      code .visible-sm-*
+                    td.is-hidden Hidden
+                    td.is-visible Visible
+                    td.is-hidden Hidden
+                    td.is-hidden Hidden
+                  tr
+                    th(scope="row")
+                      code .visible-md-*
+                    td.is-hidden Hidden
+                    td.is-hidden Hidden
+                    td.is-visible Visible
+                    td.is-hidden Hidden
+                  tr
+                    th(scope="row")
+                      code .visible-lg-*
+                    td.is-hidden Hidden
+                    td.is-hidden Hidden
+                    td.is-hidden Hidden
+                    td.is-visible Visible
+                tbody
+                  tr
+                    th(scope="row")
+                      code .hidden-xs
+                    td.is-hidden Hidden
+                    td.is-visible Visible
+                    td.is-visible Visible
+                    td.is-visible Visible
+                  tr
+                    th(scope="row")
+                      code .hidden-sm
+                    td.is-visible Visible
+                    td.is-hidden Hidden
+                    td.is-visible Visible
+                    td.is-visible Visible
+                  tr
+                    th(scope="row")
+                      code .hidden-md
+                    td.is-visible Visible
+                    td.is-visible Visible
+                    td.is-hidden Hidden
+                    td.is-visible Visible
+                  tr
+                    th(scope="row")
+                      code .hidden-lg
+                    td.is-visible Visible
+                    td.is-visible Visible
+                    td.is-visible Visible
+                    td.is-hidden Hidden
+            p
+              | As of v3.2.0, the
+              code .visible-*-*
+              | classes for each breakpoint come in three variations, one for each CSS
+              code display
+              | property value listed below.
+            .table-responsive
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Group of classes
+                    th
+                      | CSS
+                      code display
+                tbody
+                  tr
+                    th(scope="row")
+                      code .visible-*-block
+                    td
+                      code display: block;
+                  tr
+                    th(scope="row")
+                      code .visible-*-inline
+                    td
+                      code display: inline;
+                  tr
+                    th(scope="row")
+                      code .visible-*-inline-block
+                    td
+                      code display: inline-block;
+            p
+              | So, for extra small (
+              code xs
+              | ) screens for example, the available
+              code .visible-*-*
+              | classes are:
+              code .visible-xs-block
+              | ,
+              code .visible-xs-inline
+              | , and
+              code .visible-xs-inline-block
+              | .
+            p
+              | The classes
+              code .visible-xs
+              | ,
+              code .visible-sm
+              | ,
+              code .visible-md
+              | , and
+              code .visible-lg
+              | also exist, but are
+              strong deprecated as of v3.2.0
+              | . They are approximately equivalent to
+              code .visible-*-block
+              | , except with additional special cases for toggling
+              code &#60;table&#62;
+              | -related elements.
+            h2#responsive-utilities-print Print classes
+            p
+              | Similar to the regular responsive classes, use these for toggling content for print.
+            .table-responsive
+              table.table.table-bordered.table-striped.responsive-utilities
+                thead
+                  tr
+                    th Classes
+                    th Browser
+                    th Print
+                tbody
+                  tr
+                    th(scope="row")
+                      code .visible-print-block
+                      br
+                      code .visible-print-inline
+                      br
+                      code .visible-print-inline-block
+                    td.is-hidden Hidden
+                    td.is-visible Visible
+                  tr
+                    th(scope="row")
+                      code .hidden-print
+                    td.is-visible Visible
+                    td.is-hidden Hidden
+            p
+              | The class
+              code .visible-print
+              | also exists but is
+              strong deprecated
+              | as of v3.2.0. It is approximately equivalent to
+              code .visible-print-block
+              | , except with additional special cases for
+              code &#60;table&#62;
+              | -related elements.
+            h2#responsive-utilities-tests Test cases
+            p
+              | Resize your browser or load on different devices to test the responsive utility classes.
+            h3 Visible on...
+            p
+              | Green checkmarks indicate the element
+              strong is visible
+              | in your current viewport.
+            .row.responsive-utilities-test.visible-on
+              .col-xs-6.col-sm-3
+                span.hidden-xs Extra small
+                span.visible-xs-block &#10004; Visible on x-small
+              .col-xs-6.col-sm-3
+                span.hidden-sm Small
+                span.visible-sm-block &#10004; Visible on small
+              .clearfix.visible-xs-block
+              .col-xs-6.col-sm-3
+                span.hidden-md Medium
+                span.visible-md-block &#10004; Visible on medium
+              .col-xs-6.col-sm-3
+                span.hidden-lg Large
+                span.visible-lg-block &#10004; Visible on large
+            .row.responsive-utilities-test.visible-on
+              .col-xs-6
+                span.hidden-xs.hidden-sm Extra small and small
+                span.visible-xs-block.visible-sm-block &#10004; Visible on x-small and small
+              .col-xs-6
+                span.hidden-md.hidden-lg Medium and large
+                span.visible-md-block.visible-lg-block &#10004; Visible on medium and large
+              .clearfix.visible-xs-block
+              .col-xs-6
+                span.hidden-xs.hidden-md Extra small and medium
+                span.visible-xs-block.visible-md-block &#10004; Visible on x-small and medium
+              .col-xs-6
+                span.hidden-sm.hidden-lg Small and large
+                span.visible-sm-block.visible-lg-block &#10004; Visible on small and large
+              .clearfix.visible-xs-block
+              .col-xs-6
+                span.hidden-xs.hidden-lg Extra small and large
+                span.visible-xs-block.visible-lg-block &#10004; Visible on x-small and large
+              .col-xs-6
+                span.hidden-sm.hidden-md Small and medium
+                span.visible-sm-block.visible-md-block &#10004; Visible on small and medium
+            h3 Hidden on...
+            p
+              | Here, green checkmarks also indicate the element
+              strong is hidden
+              | in your current viewport.
+            .row.responsive-utilities-test.hidden-on
+              .col-xs-6.col-sm-3
+                span.hidden-xs Extra small
+                span.visible-xs-block &#10004; Hidden on x-small
+              .col-xs-6.col-sm-3
+                span.hidden-sm Small
+                span.visible-sm-block &#10004; Hidden on small
+              .clearfix.visible-xs-block
+              .col-xs-6.col-sm-3
+                span.hidden-md Medium
+                span.visible-md-block &#10004; Hidden on medium
+              .col-xs-6.col-sm-3
+                span.hidden-lg Large
+                span.visible-lg-block &#10004; Hidden on large
+            .row.responsive-utilities-test.hidden-on
+              .col-xs-6
+                span.hidden-xs.hidden-sm Extra small and small
+                span.visible-xs-block.visible-sm-block &#10004; Hidden on x-small and small
+              .col-xs-6
+                span.hidden-md.hidden-lg Medium and large
+                span.visible-md-block.visible-lg-block &#10004; Hidden on medium and large
+              .clearfix.visible-xs-block
+              .col-xs-6
+                span.hidden-xs.hidden-md Extra small and medium
+                span.visible-xs-block.visible-md-block &#10004; Hidden on x-small and medium
+              .col-xs-6
+                span.hidden-sm.hidden-lg Small and large
+                span.visible-sm-block.visible-lg-block &#10004; Hidden on small and large
+              .clearfix.visible-xs-block
+              .col-xs-6
+                span.hidden-xs.hidden-lg Extra small and large
+                span.visible-xs-block.visible-lg-block &#10004; Hidden on x-small and large
+              .col-xs-6
+                span.hidden-sm.hidden-md Small and medium
+                span.visible-sm-block.visible-md-block &#10004; Hidden on small and medium
+          .bs-docs-section
+            h1#less.page-header Using Less
+            p.lead
+              | Bootstrap"s CSS is built on Less, a preprocessor with additional functionality like variables, mixins, and functions for compiling CSS. Those looking to use the source Less files instead of our compiled CSS files can make use of the numerous variables and mixins we use throughout the framework.
+            p
+              | Grid variables and mixins are covered
+              a(href="#grid-less") within the Grid system section
+              | .
+            h2#less-bootstrap Compiling Bootstrap
+            p
+              | Bootstrap can be used in at least two ways: with the compiled CSS or with the source Less files. To compile the Less files,
+              a(href="../getting-started/#grunt") consult the Getting Started section
+              | for how to setup your development environment to run the necessary commands.
+            p
+              | Third party compilation tools may work with Bootstrap, but they are not supported by our core team.
+            h2#less-variables Variables
+            p
+              | Variables are used throughout the entire project as a way to centralize and share commonly used values like colors, spacing, or font stacks. For a complete breakdown, please see
+              a(href="../customize/#less-variables-section") the Customizer
+              | .
+            h3#less-variables-colors Colors
+            p
+              | Easily make use of two color schemes: grayscale and semantic. Grayscale colors provide quick access to commonly used shades of black while semantic include various colors assigned to meaningful contextual values.
+            .bs-example
+              .color-swatches
+                .color-swatch.gray-darker
+                .color-swatch.gray-dark
+                .color-swatch.gray
+                .color-swatch.gray-light
+                .color-swatch.gray-lighter
+            figure.highlight
+              pre.
+                
+            .bs-example
+              .color-swatches
+                .color-swatch.brand-primary
+                .color-swatch.brand-success
+                .color-swatch.brand-info
+                .color-swatch.brand-warning
+                .color-swatch.brand-danger
+            figure.highlight
+              pre.
+                
+            p
+              | Use any of these color variables as they are or reassign them to more meaningful variables for your project.
+            figure.highlight
+              pre.
+                
+            h3#less-variables-scaffolding Scaffolding
+            p
+              | A handful of variables for quickly customizing key elements of your site"s skeleton.
+            figure.highlight
+              pre.
+                
+            h3#less-variables-links Links
+            p Easily style your links with the right color with only one value.
+            figure.highlight
+              pre.
+                
+            p
+              | Note that the
+              code @link-hover-color
+              | uses a function, another awesome tool from Less, to automagically create the right hover color. You can use
+              code darken
+              | ,
+              code lighten
+              | ,
+              code saturate
+              | , and
+              code desaturate
+              | .
+            h3#less-variables-typography Typography
+            p
+              | Easily set your typeface, text size, leading, and more with a few quick variables. Bootstrap makes use of these as well to provide easy typographic mixins.
+            figure.highlight
+              pre.
+                
+            h3#less-variables-icons Icons
+            p Two quick variables for customizing the location and filename of your icons.
+            figure.highlight
+              pre.
+                
+            h3#less-variables-components Components
+            p
+              | Components throughout Bootstrap make use of some default variables for setting common values. Here are the most commonly used.
+            figure.highlight
+              pre.
+                
+            h2#less-mixins-vendor Vendor mixins
+            p
+              | Vendor mixins are mixins to help support multiple browsers by including all relevant vendor prefixes in your compiled CSS.
+            h3#less-mixins-box-sizing Box-sizing
+            p
+              | Reset your components" box model with a single mixin. For context, see this
+              a(href="https://developer.mozilla.org/en-US/docs/CSS/box-sizing", target="_blank") helpful article from Mozilla
+              | .
+            p
+              | The mixin is
+              strong deprecated
+              | as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixin internally until Bootstrap v4.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-rounded-corners Rounded corners
+            p
+              | Today all modern browsers support the non-prefixed
+              code border-radius
+              | property. As such, there is no
+              code .border-radius()
+              | mixin, but Bootstrap does include shortcuts for quickly rounding two corners on a particular side of an object.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-box-shadow Box (Drop) shadows
+            p
+              | If your target audience is using the latest and greatest browsers and devices, be sure to just use the
+              code box-shadow
+              | property on its own. If you need support for older Android (pre-v4) and iOS devices (pre-iOS 5), use the
+              strong deprecated
+              | mixin to pick up the required
+              code -webkit
+              | prefix.
+            p
+              | The mixin is
+              strong deprecated
+              | as of v3.1.0, since Bootstrap doesn"t officially support the outdated platforms that don"t support the standard property. To preserve backwards-compatibility, Bootstrap will continue to use the mixin internally until Bootstrap v4.
+            p
+              | Be sure to use
+              code rgba()
+              | colors in your box shadows so they blend as seamlessly as possible with backgrounds.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-transitions Transitions
+            p
+              | Multiple mixins for flexibility. Set all transition information with one, or specify a separate delay and duration as needed.
+            p
+              | The mixins are
+              strong deprecated
+              | as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-transformations Transformations
+            p Rotate, scale, translate (move), or skew any object.
+            p
+              | The mixins are
+              strong deprecated
+              | as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-animations Animations
+            p
+              | A single mixin for using all of CSS3"s animation properties in one declaration and other mixins for individual properties.
+            p
+              | The mixins are
+              strong deprecated
+              | as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-opacity Opacity
+            p
+              | Set the opacity for all browsers and provide a
+              code filter
+              | fallback for IE8.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-placeholder Placeholder text
+            p Provide context for form controls within each field.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-columns Columns
+            p Generate columns via CSS within a single element.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-gradients Gradients
+            p
+              | Easily turn any two colors into a background gradient. Get more advanced and set a direction, use three colors, or use a radial gradient. With a single mixin you get all the prefixed syntaxes you"ll need.
+            figure.highlight
+              pre.
+                
+            p You can also specify the angle of a standard two-color, linear gradient:
+            figure.highlight
+              pre.
+                
+            p
+              | If you need a barber-stripe style gradient, that"s easy, too. Just specify a single color and we"ll overlay a translucent white stripe.
+            figure.highlight
+              pre.
+                
+            p
+              | Up the ante and use three colors instead. Set the first color, the second color, the second color"s color stop (a percentage value like 25%), and the third color with these mixins:
+            figure.highlight
+              pre.
+                
+            p
+              strong Heads up!
+              | Should you ever need to remove a gradient, be sure to remove any IE-specific
+              code filter
+              | you may have added. You can do that by using the
+              code .reset-filter()
+              | mixin alongside
+              code background-image: none;
+              | .
+            h2#less-mixins-utility Utility mixins
+            p
+              | Utility mixins are mixins that combine otherwise unrelated CSS properties to achieve a specific goal or task.
+            h3#less-mixins-clearfix Clearfix
+            p
+              | Forget adding
+              code class="clearfix"
+              | to any element and instead add the
+              code .clearfix()
+              | mixin where appropriate. Uses the
+              a(href="http://nicolasgallagher.com/micro-clearfix-hack/", target="_blank") micro clearfix
+              | from
+              a(href="https://twitter.com/necolas", target="_blank") Nicolas Gallagher
+              | .
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-centering Horizontal centering
+            p
+              | Quickly center any element within its parent.
+              strong
+                | Requires
+                code width
+                | or
+                code max-width
+                | to be set.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-sizing Sizing helpers
+            p Specify the dimensions of an object more easily.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-resizable Resizable textareas
+            p
+              | Easily configure the resize options for any textarea, or any other element. Defaults to normal browser behavior (
+              code both
+              | ).
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-truncating Truncating text
+            p
+              | Easily truncate text with an ellipsis with a single mixin.
+              strong
+                | Requires element to be
+                code block
+                | or
+                code inline-block
+                | level.
+            figure.highlight
+              pre.
+                
+            h3#less-mixins-retina-images Retina images
+            p
+              | Specify two image paths and the @1x image dimensions, and Bootstrap will provide an @2x media query.
+              strong
+                | If you have many images to serve, consider writing your retina image CSS manually in a single media query.
+            figure.highlight
+              pre.
+                
+          .bs-docs-section
+            h1#sass.page-header Using Sass
+            p.lead
+              | While Bootstrap is built on Less, it also has an
+              a(href="https://github.com/twbs/bootstrap-sass") official Sass port
+              | . We maintain it in a separate GitHub repository and handle updates with a conversion script.
+            h2#sass-contents What"s included
+            p
+              | Since the Sass port has a separate repo and serves a slightly different audience, the contents of the project differ greatly from the main Bootstrap project. This ensures the Sass port is as compatible with as many Sass-based systems as possible.
+            .table-responsive
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Path
+                    th Description
+                tbody
+                  tr
+                    th(scope="row")
+                      code lib/
+                    td Ruby gem code (Sass configuration, Rails and Compass integrations)
+                  tr
+                    th(scope="row")
+                      code tasks/
+                    td Converter scripts (turning upstream Less to Sass)
+                  tr
+                    th(scope="row")
+                      code test/
+                    td Compilation tests
+                  tr
+                    th(scope="row")
+                      code templates/
+                    td Compass package manifest
+                  tr
+                    th(scope="row")
+                      code vendor/assets/
+                    td Sass, JavaScript, and font files
+                  tr
+                    th(scope="row")
+                      code Rakefile
+                    td Internal tasks, such as rake and convert
+            p
+              | Visit the
+              a(href="https://github.com/twbs/bootstrap-sass") Sass port"s GitHub repository
+              | to see these files in action.
+            h2#sass-installation Installation
+            p
+              | For information on how to install and use Bootstrap for Sass, consult the
+              a(href="https://github.com/twbs/bootstrap-sass") GitHub repository readme
+              | . It"s the most up to date source and includes information for use with Rails, Compass, and standard Sass projects.
+            p
+              a.btn.btn-lg.btn-outline(href="https://github.com/twbs/bootstrap-sass") Bootstrap for Sass
+        .col-md-3(role="complementary")
+          nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm
+            ul.nav.bs-docs-sidenav
+              li
+                a(href="#overview") Overview
+                ul.nav
+                  li
+                    a(href="#overview-doctype") HTML5 doctype
+                  li
+                    a(href="#overview-mobile") Mobile first
+                  li
+                    a(href="#overview-type-links") Typography and links
+                  li
+                    a(href="#overview-normalize") Normalize.css
+                  li
+                    a(href="#overview-container") Containers
+              li
+                a(href="#grid") Grid system
+                ul.nav
+                  li
+                    a(href="#grid-intro") Introduction
+                  li
+                    a(href="#grid-media-queries") Media queries
+                  li
+                    a(href="#grid-options") Grid options
+                  li
+                    a(href="#grid-example-basic") Ex: Stacked-to-horizontal
+                  li
+                    a(href="#grid-example-fluid") Ex: Fluid container
+                  li
+                    a(href="#grid-example-mixed") Ex: Mobile and desktop
+                  li
+                    a(href="#grid-example-mixed-complete") Ex: Mobile, tablet, desktop
+                  li
+                    a(href="#grid-example-wrapping") Ex: Column wrapping
+                  li
+                    a(href="#grid-responsive-resets") Responsive column resets
+                  li
+                    a(href="#grid-offsetting") Offsetting columns
+                  li
+                    a(href="#grid-nesting") Nesting columns
+                  li
+                    a(href="#grid-column-ordering") Column ordering
+                  li
+                    a(href="#grid-less") Less mixins and variables
+              li
+                a(href="#type") Typography
+                ul.nav
+                  li
+                    a(href="#type-headings") Headings
+                  li
+                    a(href="#type-body-copy") Body copy
+                  li
+                    a(href="#type-inline-text") Inline text elements
+                  li
+                    a(href="#type-alignment") Alignment classes
+                  li
+                    a(href="#type-transformation") Transformation classes
+                  li
+                    a(href="#type-abbreviations") Abbreviations
+                  li
+                    a(href="#type-addresses") Addresses
+                  li
+                    a(href="#type-blockquotes") Blockquotes
+                  li
+                    a(href="#type-lists") Lists
+              li
+                a(href="#code") Code
+                ul.nav
+                  li
+                    a(href="#code-inline") Inline
+                  li
+                    a(href="#code-user-input") User input
+                  li
+                    a(href="#code-block") Basic block
+                  li
+                    a(href="#code-variables") Variables
+                  li
+                    a(href="#code-sample-output") Sample output
+              li
+                a(href="#tables") Tables
+                ul.nav
+                  li
+                    a(href="#tables-example") Basic example
+                  li
+                    a(href="#tables-striped") Striped rows
+                  li
+                    a(href="#tables-bordered") Bordered table
+                  li
+                    a(href="#tables-hover-rows") Hover rows
+                  li
+                    a(href="#tables-condensed") Condensed table
+                  li
+                    a(href="#tables-contextual-classes") Contextual classes
+                  li
+                    a(href="#tables-responsive") Responsive tables
+              li
+                a(href="#forms") Forms
+                ul.nav
+                  li
+                    a(href="#forms-example") Basic example
+                  li
+                    a(href="#forms-inline") Inline form
+                  li
+                    a(href="#forms-horizontal") Horizontal form
+                  li
+                    a(href="#forms-controls") Supported controls
+                  li
+                    a(href="#forms-controls-static") Static control
+                  li
+                    a(href="#forms-control-focus") Focus state
+                  li
+                    a(href="#forms-control-disabled") Disabled state
+                  li
+                    a(href="#forms-control-readonly") Readonly state
+                  li
+                    a(href="#forms-help-text") Help text
+                  li
+                    a(href="#forms-control-validation") Validation states
+                  li
+                    a(href="#forms-control-sizes") Control sizing
+              li
+                a(href="#buttons") Buttons
+                ul.nav
+                  li
+                    a(href="#buttons-tags") Button tags
+                  li
+                    a(href="#buttons-options") Options
+                  li
+                    a(href="#buttons-sizes") Sizes
+                  li
+                    a(href="#buttons-active") Active state
+                  li
+                    a(href="#buttons-disabled") Disabled state
+              li
+                a(href="#images") Images
+                ul.nav
+                  li
+                    a(href="#images-responsive") Responsive images
+                  li
+                    a(href="#images-shapes") Image shapes
+              li
+                a(href="#helper-classes") Helper classes
+                ul.nav
+                  li
+                    a(href="#helper-classes-colors") Contextual colors
+                  li
+                    a(href="#helper-classes-backgrounds") Contextual backgrounds
+                  li
+                    a(href="#helper-classes-close") Close icon
+                  li
+                    a(href="#helper-classes-carets") Carets
+                  li
+                    a(href="#helper-classes-floats") Quick floats
+                  li
+                    a(href="#helper-classes-center") Center content blocks
+                  li
+                    a(href="#helper-classes-clearfix") Clearfix
+                  li
+                    a(href="#helper-classes-show-hide") Showing and hiding content
+                  li
+                    a(href="#helper-classes-screen-readers") Screen reader and keyboard navigation content
+                  li
+                    a(href="#helper-classes-image-replacement") Image replacement
+              li
+                a(href="#responsive-utilities") Responsive utilities
+                ul.nav
+                  li
+                    a(href="#responsive-utilities-classes") Available classes
+                  li
+                    a(href="#responsive-utilities-print") Print classes
+                  li
+                    a(href="#responsive-utilities-tests") Test cases
+              li
+                a(href="#less") Using Less
+                ul.nav
+                  li
+                    a(href="#less-bootstrap") Compiling Bootstrap
+                  li
+                    a(href="#less-variables") Variables
+                  li
+                    a(href="#less-mixins-vendor") Vendor mixins
+                  li
+                    a(href="#less-mixins-utility") Utility mixins
+              li
+                a(href="#sass") Using Sass
+                ul.nav
+                  li
+                    a(href="#sass-contents") What"s included
+                  li
+                    a(href="#sass-installation") Installation
+            a.back-to-top(href="#top")  Back to top 
+            a.bs-docs-theme-toggle(href="#", role="button")  Preview theme 
+    footer.bs-docs-footer(role="contentinfo")
+      .container
+        ul.bs-docs-footer-links
+          li
+            a(href="https://github.com/twbs/bootstrap") GitHub
+          li
+            a(href="https://twitter.com/getbootstrap") Twitter
+          li
+            a(href="../getting-started/#examples") Examples
+          li
+            a(href="../about/") About
+        p
+          | Designed and built with all the love in the world by
+          a(href="https://twitter.com/mdo", target="_blank") @mdo
+          | and
+          a(href="https://twitter.com/fat", target="_blank") @fat
+          | . Maintained by the
+          a(href="https://github.com/orgs/twbs/people") core team
+          | with the help of
+          a(href="https://github.com/twbs/bootstrap/graphs/contributors") our contributors
+          | .
+        p
+          | Code licensed
+          a(rel="license", href="https://github.com/twbs/bootstrap/blob/master/LICENSE", target="_blank") MIT
+          | , docs
+          a(rel="license", href="https://creativecommons.org/licenses/by/3.0/", target="_blank") CC BY 3.0
+          | .
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+    script
+      window.jQuery||document.write('<script src="../assets/js/vendor/jquery.min.js"><\\/script>');
+    script(src="../dist/js/bootstrap.min.js")
+    script(src="../assets/js/docs.min.js")
+    script(src="../assets/js/ie10-viewport-bug-workaround.js")
+    script
+      var _gauges=_gauges||[];!function(){var e=document.createElement("script");e.async=!0,e.id="gauges-tracker",e.setAttribute("data-site-id","4f0dc9fef5a1f55508000013"),e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();
+    script(type="text/javascript")
+      /* <![CDATA[ */
+      (function(){try{var s,a,i,j,r,c,l=document.getElementsByTagName("a"),t=document.createElement("textarea");for(i=0;l.length-i;i++){try{a=l[i].getAttribute("href");if(a&&a.indexOf("/cdn-cgi/l/email-protection") > -1  && (a.length > 28)){s='';j=27+ 1 + a.indexOf("/cdn-cgi/l/email-protection");if (a.length > j) {r=parseInt(a.substr(j,2),16);for(j+=2;a.length>j&&a.substr(j,1)!='X';j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}j+=1;s+=a.substr(j,a.length-j);}t.innerHTML=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");l[i].setAttribute("href","mailto:"+t.value);}}catch(e){}}}catch(e){}})();
+      /* ]]> */

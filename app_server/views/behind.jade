@@ -6,4 +6,40 @@ block content
       .col-sm-12.col-md-6
         h1= pageHeader.title
           small &nbsp; #{pageHeader.strapline} 
-          
+    .row
+      .col-md-9(role="main")
+        .bs-docs-section
+          h1#overview.page-header Overview
+          p.lead Get the lowdown on the key pieces of Bootstrap"s infrastructure, including our approach to better, faster, stronger web development.
+          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+
+          h1#overview-doctype HTML Doctype
+          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+
+          h1#overview-nvm Nevermind
+          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+
+        .bs-docs-section
+          h1#other.page-header Other Chap
+          p.lead Get the lowdown on the key pieces of Bootstrap"s infrastructure, including our approach to better, faster, stronger web development.
+          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+
+          h1#other-subchap Other Sub Chap
+          p Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+
+      .col-md-3(role="complementary")
+        nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix
+          ul.nav.bs-docs-sidenav
+            li
+              a(href="#overview") Overview
+              ul.nav
+                li
+                  a(href="#overview-doctype") HTML5 Doctype
+                li
+                  a(href="#overview-nvm") Nevermind
+            li
+              a(href="#other") Other Chap
+              ul.nav
+                li
+                  a(href="#other-subchap") Other Sub Chap
+              

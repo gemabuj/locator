@@ -1,0 +1,14 @@
+db.locations.update({
+  '_id': ObjectId('56ada20d9aa596af0ccd55d6')
+  },{$push: {'name': 'The Captain'}
+  }
+})
+
+
+
+
+  '_id': ObjectId('56ada20d9aa596af0ccd55d6')
+  }, {
+  $push: {
+  }
+}
